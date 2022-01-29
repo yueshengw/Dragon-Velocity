@@ -26,6 +26,7 @@ public class PlayerMovement1 : MonoBehaviour
     public GameObject Player;
 
     public bool isDashing;
+    public bool canDash;
 
     public float glideTimeDefault;
     public float glideTime;
@@ -87,9 +88,10 @@ public class PlayerMovement1 : MonoBehaviour
         moveInput = Input.GetAxisRaw("Horizontal");
         moveForce = new Vector3(moveInput * moveSpeed1, rb2d.velocity.y, 0);
         Vector3 m_Input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash == true)
         {
             isDashing = true;
+            canDash = false;
             dashTime = dashTimeDefault;
             if (moveInput == 1) {
             rb2d.MovePosition(transform.position + (Vector3.right * 10.0f));
@@ -121,10 +123,12 @@ public class PlayerMovement1 : MonoBehaviour
         {
             glideTime = glideTimeDefault;
             grounded = true;
+            canDash = true;
         }
         if (collider.tag == "Trigger1")
         {
             GameManager.GetComponent<GameManager>().Call1();
+            collider.gameObject.SetActive(false);
         }
     }
     private void OnTriggerStay2D(Collider2D collider)
@@ -136,6 +140,7 @@ public class PlayerMovement1 : MonoBehaviour
         if (collider.tag == "Ground")
         {
             grounded = true;
+            canDash = true;
         }
     }
     private void OnTriggerExit2D()
@@ -152,7 +157,6 @@ public class PlayerMovement1 : MonoBehaviour
         if (collider.gameObject.tag == "Breakable" && isDashing == true)
         {
             Destroy(collider.gameObject);
-            isDashing = false;
         }
     }
 }
