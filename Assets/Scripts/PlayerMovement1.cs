@@ -63,12 +63,11 @@ public class PlayerMovement1 : MonoBehaviour
             rb2d.MovePosition(transform.position + (Vector3.down * 2.0f));
         }
         */
-        if (Input.GetKey(KeyCode.Space) && grounded) 
+        if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow)) && grounded) 
         {
             rb2d.velocity = new Vector2(rb2d.velocity.x, jump);
         }
-
-        if (Input.GetKey(KeyCode.K) && !grounded && !Input.GetKey(KeyCode.Space) && glideTime > 0f) 
+        if (Input.GetKey(KeyCode.K) && !grounded && !Input.GetKey(KeyCode.Space) && rb2d.velocity.y <= 0f && glideTime > 0f) 
         {
             glideTime -= Time.deltaTime;
             rb2d.gravityScale = 1.0f;
