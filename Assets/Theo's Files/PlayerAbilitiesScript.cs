@@ -11,6 +11,9 @@ public class PlayerAbilitiesScript : MonoBehaviour
     public float movementInput;
     public int playerDirection;
 
+    [SerializeField] private AudioSource dashAudio;
+    [SerializeField] private AudioSource groundpoundAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +25,8 @@ public class PlayerAbilitiesScript : MonoBehaviour
     void Update()
     {
         DashMove();
-        StompMove();
-        //BrakeMove();
+        GroundPoundMove();
+        BrakeMove();
         GlideMove();
 
         if (Input.GetKey(KeyCode.A))
@@ -44,6 +47,7 @@ public class PlayerAbilitiesScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.H))
             {
+                dashAudio.Play();
                 if (movementInput < 0)
                 {
                     playerDirection = 1;
@@ -78,11 +82,17 @@ public class PlayerAbilitiesScript : MonoBehaviour
         }
     }
 
-    /*void BrakeMove()
+    void BrakeMove()
     {
-
-    }*/
-    void StompMove()
+        if (Input.GetKeyDown(KeyCode.J) /*&& GetComponent<PlayerMovementScript>().isGrounded == true*/)
+        {
+            if (playerDirection == 0)
+            {
+                rb.velocity = Vector2.zero;
+            }
+        }
+    }
+    void GroundPoundMove()
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
@@ -90,6 +100,7 @@ public class PlayerAbilitiesScript : MonoBehaviour
             {
                 if (playerDirection == 0)
                 {
+                    groundpoundAudio.Play();
                     rb.velocity = Vector2.down * dashSpeed;
                 }
             }
@@ -97,9 +108,9 @@ public class PlayerAbilitiesScript : MonoBehaviour
     }
     void GlideMove()
     {
-        if (Input.GetKey(KeyCode.K))
+        if (Input.GetKey(KeyCode.K) && GetComponent<PlayerMovementScript>().isGrounded == false)
         {
-            rb.drag = 12;
+            rb.drag = 7;
         }
         if (Input.GetKeyUp(KeyCode.K))
         {
