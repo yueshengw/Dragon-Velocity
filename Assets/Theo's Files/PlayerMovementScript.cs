@@ -48,11 +48,19 @@ public class PlayerMovementScript : MonoBehaviour
         {
             if (isGrounded)
             {
-                GetComponent<Rigidbody2D>().AddForce(new Vector3(leftMoveForce_Ground.x*2,0,0));
+                if (GetComponent<Rigidbody2D>().velocity.x < leftMoveForce_Ground.x)
+                {
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(-11f, GetComponent<Rigidbody2D>().velocity.y);
+                }
+                GetComponent<Rigidbody2D>().AddForce(leftMoveForce_Ground);
             }
             else
             {
-                //GetComponent<Rigidbody2D>().AddForce(leftMoveForce_Air.x*2,0,0);
+                if (GetComponent<Rigidbody2D>().velocity.x < leftMoveForce_Air.x)
+                {
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(-8f, GetComponent<Rigidbody2D>().velocity.y);
+                }
+                GetComponent<Rigidbody2D>().AddForce(leftMoveForce_Air);
             }
             //GetComponent<Rigidbody2D>().AddForce(leftMoveForce);
             //GetComponent<Rigidbody2D>().AddForce(leftMoveForceCounter);
@@ -63,15 +71,24 @@ public class PlayerMovementScript : MonoBehaviour
                 GetComponent<SpriteRenderer>().flipX = true;
             }
         }
+        Debug.Log(GetComponent<Rigidbody2D>().velocity.x);
 
         if (Input.GetKey(KeyCode.D))
         {
             if (isGrounded)
             {
+                if (GetComponent<Rigidbody2D>().velocity.x < rightMoveForce_Ground.x)
+                {
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(11f, GetComponent<Rigidbody2D>().velocity.y);
+                }
                 GetComponent<Rigidbody2D>().AddForce(rightMoveForce_Ground);
             }
             else
             {
+                if (GetComponent<Rigidbody2D>().velocity.x < rightMoveForce_Air.x)
+                {
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(8f, GetComponent<Rigidbody2D>().velocity.y);
+                }
                 GetComponent<Rigidbody2D>().AddForce(rightMoveForce_Air);
             }
             //GetComponent<Rigidbody2D>().AddForce(rightMoveForceCounter);
@@ -82,7 +99,6 @@ public class PlayerMovementScript : MonoBehaviour
                 GetComponent<SpriteRenderer>().flipX = false;
             }
         }
-
         /*if (isMoving == true)
         {
             walkingAudio.Play();
