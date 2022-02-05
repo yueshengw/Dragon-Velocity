@@ -48990,6 +48990,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5677426728917991307, guid: 44c1bce2a9a5c2943a673dbfdcf8c6c5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 5677426728917991308, guid: 44c1bce2a9a5c2943a673dbfdcf8c6c5, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -65315,7 +65319,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.010315277, y: -0.44344282}
   m_SpriteTilingProperty:
-    border: {x: 0.31, y: 0, z: 0.11, w: 0}
+    border: {x: 0.41, y: 0.04, z: 0.19, w: 0.04}
     pivot: {x: 0.63623977, y: 0.51513773}
     oldSize: {x: 1, y: 1}
     newSize: {x: 0.01, y: 0.01}
