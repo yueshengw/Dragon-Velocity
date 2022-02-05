@@ -34,6 +34,8 @@ public class PlayerMovementScript : MonoBehaviour
     public bool newCheckpoint;
 
     public float maxSpeed;
+
+    public int jumpNum;
     void Start()
     {
         isDead = false;
@@ -122,8 +124,9 @@ public class PlayerMovementScript : MonoBehaviour
             isGrounded = false;
         }
         **/
-        if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow)) && isGrounded)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow)) && jumpNum > 0)
         {
+            jumpNum-=1;
             jumpingAudio.Play();
             GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jump);
         }
@@ -180,6 +183,7 @@ public class PlayerMovementScript : MonoBehaviour
         {
             //glideTime = glideTimeDefault;
             isGrounded = true;
+            jumpNum = 2;
             //canDash = true;
         }
         if (collider.tag == "Trigger1")
