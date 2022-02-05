@@ -11,6 +11,8 @@ public class PlayerAbilitiesScript : MonoBehaviour
     public float movementInput;
     public int playerDirection;
 
+    public bool isDashing;
+
     [SerializeField] private AudioSource dashAudio;
     [SerializeField] private AudioSource groundpoundAudio;
 
@@ -73,10 +75,12 @@ public class PlayerAbilitiesScript : MonoBehaviour
                 if (playerDirection == 1)
                 {
                     rb.velocity = Vector2.left * dashSpeed;
+                    isDashing = true;
                 }
                 else if (playerDirection == 2)
                 {
                     rb.velocity = Vector2.right * dashSpeed;
+                    isDashing = true;
                 }
             }
         }
@@ -115,6 +119,15 @@ public class PlayerAbilitiesScript : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.K))
         {
             rb.drag = 0;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Breakable" && isDashing == true)
+        {
+            Destroy(collision.gameObject);
+            isDashing = false;
         }
     }
 }
