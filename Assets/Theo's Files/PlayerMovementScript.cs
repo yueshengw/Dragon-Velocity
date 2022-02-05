@@ -48,11 +48,11 @@ public class PlayerMovementScript : MonoBehaviour
         {
             if (isGrounded)
             {
-                GetComponent<Rigidbody2D>().AddForce(new Vector3(leftMoveForce_Ground.x*2,0,0));
+                GetComponent<Rigidbody2D>().AddForce(leftMoveForce_Ground);
             }
             else
             {
-                //GetComponent<Rigidbody2D>().AddForce(leftMoveForce_Air.x*2,0,0);
+                GetComponent<Rigidbody2D>().AddForce(leftMoveForce_Air);
             }
             //GetComponent<Rigidbody2D>().AddForce(leftMoveForce);
             //GetComponent<Rigidbody2D>().AddForce(leftMoveForceCounter);
