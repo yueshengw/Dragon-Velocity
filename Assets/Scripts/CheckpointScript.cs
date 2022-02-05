@@ -9,7 +9,7 @@ public class CheckpointScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Player = GameObject.Find("Player");
+        //Player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class CheckpointScript : MonoBehaviour
         if (collider.tag == "Player")
         {
             isCheckpoint = true;
-            Player.GetComponent<PlayerMovement1>().newCheckpoint = true;
+            Player.GetComponent<PlayerMovementScript>().newCheckpoint = true;
         }
     }
 }
