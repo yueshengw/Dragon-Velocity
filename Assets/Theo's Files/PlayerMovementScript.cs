@@ -7,8 +7,10 @@ using UnityEngine.SceneManagement;
 public class PlayerMovementScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Vector3 leftMoveForce;
-    public Vector3 rightMoveForce;
+    public Vector3 leftMoveForce_Ground;
+    public Vector3 rightMoveForce_Ground;
+    public Vector3 leftMoveForce_Air;
+    public Vector3 rightMoveForce_Air;
     public Vector3 upMoveForce;
 
     public bool flip;
@@ -25,18 +27,35 @@ public class PlayerMovementScript : MonoBehaviour
     [SerializeField] private AudioSource jumpingAudio;
     [SerializeField] private AudioSource landAudio;
 
+    public bool isDashing;
+    public bool canDash;
+    public float jump;
+    public GameObject GameManager;
+    public bool newCheckpoint;
+
+    public float maxSpeed;
     void Start()
     {
         isDead = false;
-
+        GameManager = GameObject.Find("GameManager");
     }
 
     // Update is called once per frame
     void Update()
     {
+        GetComponent<Rigidbody2D>().velocity = Vector3.ClampMagnitude(GetComponent<Rigidbody2D>().velocity, maxSpeed);
         if (Input.GetKey(KeyCode.A))
         {
-            GetComponent<Rigidbody2D>().AddForce(leftMoveForce);
+            if (isGrounded)
+            {
+                GetComponent<Rigidbody2D>().AddForce(new Vector3(leftMoveForce_Ground.x*2,0,0));
+            }
+            else
+            {
+                //GetComponent<Rigidbody2D>().AddForce(leftMoveForce_Air.x*2,0,0);
+            }
+            //GetComponent<Rigidbody2D>().AddForce(leftMoveForce);
+            //GetComponent<Rigidbody2D>().AddForce(leftMoveForceCounter);
             flip = true;
             isMoving = true;
             if (flip == true)
@@ -47,7 +66,15 @@ public class PlayerMovementScript : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D))
         {
-            GetComponent<Rigidbody2D>().AddForce(rightMoveForce);
+            if (isGrounded)
+            {
+                GetComponent<Rigidbody2D>().AddForce(rightMoveForce_Ground);
+            }
+            else
+            {
+                GetComponent<Rigidbody2D>().AddForce(rightMoveForce_Air);
+            }
+            //GetComponent<Rigidbody2D>().AddForce(rightMoveForceCounter);
             flip = false;
             isMoving = true;
             if (flip == false)
@@ -64,7 +91,7 @@ public class PlayerMovementScript : MonoBehaviour
         {
             walkingAudio.Stop();
         }*/
-
+        /**
         if (isGrounded == true && Input.GetKeyDown(KeyCode.W))
         {
             jumpingAudio.Play();
@@ -77,6 +104,12 @@ public class PlayerMovementScript : MonoBehaviour
             jumpingAudio.Play();
             GetComponent<Rigidbody2D>().AddForce(upMoveForce);
             isGrounded = false;
+        }
+        **/
+        if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow)) && isGrounded)
+        {
+            jumpingAudio.Play();
+            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jump);
         }
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -105,6 +138,10 @@ public class PlayerMovementScript : MonoBehaviour
         {
             isDead = true;
         }
+        if (collision.gameObject.tag == "Breakable" && isDashing == true)
+        {
+            Destroy(GetComponent<Collider>().gameObject);
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -129,5 +166,44 @@ public class PlayerMovementScript : MonoBehaviour
         {
             isGrounded = false;
         }
+    }
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.tag == "Death")
+        {
+            isDead = true;
+        }
+        if (collider.tag == "Ground")
+        {
+            //glideTime = glideTimeDefault;
+            isGrounded = true;
+            //canDash = true;
+        }
+        if (collider.tag == "Trigger1")
+        {
+            GameManager.GetComponent<GameManager>().Call1();
+            collider.gameObject.SetActive(false);
+        }
+        if (collider.tag == "Ground")
+        {
+            isGrounded = true;
+            //canDash = true;
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collider)
+    {
+        if (collider.tag == "Death")
+        {
+            isDead = true;
+        }
+        if (collider.tag == "Ground")
+        {
+            isGrounded = true;
+            //canDash = true;
+        }
+    }
+    private void OnTriggerExit2D()
+    {
+        isGrounded = false;
     }
 }
