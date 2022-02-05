@@ -110,11 +110,12 @@ public class PlayerAbilitiesScript : MonoBehaviour
             }
         }
     }
+ 
     void GlideMove()
     {
         if (Input.GetKey(KeyCode.K) && GetComponent<PlayerMovementScript>().isGrounded == false)
         {
-            rb.drag = 7;
+            rb.drag = 5;
         }
         if (Input.GetKeyUp(KeyCode.K))
         {

@@ -141,11 +141,6 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
-        {
-            landAudio.Play();
-            isGrounded = true;
-        }
         if (collision.gameObject.tag == "Enemy")
         {
             playerHealth -= 1;
@@ -162,17 +157,9 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
-        {
-            isGrounded = true;
-        }
         if (collision.gameObject.tag == "Enemy")
         {
             playerHealth -= 1;
-        }
-        if (collision.gameObject.tag == "Death")
-        {
-            isDead = true;
         }
     }
 
