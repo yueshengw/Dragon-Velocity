@@ -14048,6 +14048,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Theo's Player Object
       objectReference: {fileID: 0}
+    - target: {fileID: 5677426728917991306, guid: 44c1bce2a9a5c2943a673dbfdcf8c6c5, type: 3}
+      propertyPath: jump
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677426728917991306, guid: 44c1bce2a9a5c2943a673dbfdcf8c6c5, type: 3}
+      propertyPath: maxSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677426728917991306, guid: 44c1bce2a9a5c2943a673dbfdcf8c6c5, type: 3}
+      propertyPath: leftMoveForce_Air.x
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677426728917991306, guid: 44c1bce2a9a5c2943a673dbfdcf8c6c5, type: 3}
+      propertyPath: rightMoveForce_Air.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677426728917991306, guid: 44c1bce2a9a5c2943a673dbfdcf8c6c5, type: 3}
+      propertyPath: leftMoveForce_Ground.x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677426728917991306, guid: 44c1bce2a9a5c2943a673dbfdcf8c6c5, type: 3}
+      propertyPath: rightMoveForce_Ground.x
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5677426728917991308, guid: 44c1bce2a9a5c2943a673dbfdcf8c6c5, type: 3}
       propertyPath: m_RootOrder
       value: 1
