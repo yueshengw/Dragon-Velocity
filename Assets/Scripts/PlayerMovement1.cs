@@ -56,6 +56,7 @@ public class PlayerMovement1 : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) 
         {
+            GetComponent<SpriteRenderer>().flipX = true;
             /**
             if (grounded == true)
             {
@@ -95,6 +96,7 @@ public class PlayerMovement1 : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) 
         {
+            GetComponent<SpriteRenderer>().flipX = false;
             /**
             if (grounded == true)
             {
@@ -169,6 +171,7 @@ public class PlayerMovement1 : MonoBehaviour
         moveInput = Input.GetAxisRaw("Horizontal");
         moveForce = new Vector3(moveInput * moveSpeed1, rb2d.velocity.y, 0);
         Vector3 m_Input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
         if (Input.GetKeyDown(KeyCode.H) && canDash == true)
         {
             dashCoolDown = 0.5f;
@@ -245,6 +248,10 @@ public class PlayerMovement1 : MonoBehaviour
         if (collider.gameObject.tag == "Breakable" && isDashing == true)
         {
             Destroy(collider.gameObject);
+        }
+        if (collider.gameObject.tag == "Ground")
+        {
+            canDash = true;
         }
     }
 }
