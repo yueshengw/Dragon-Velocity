@@ -26,7 +26,6 @@ public class PlayerAbilitiesScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DashMove();
         GroundPoundMove();
         BrakeMove();
         GlideMove();
@@ -38,6 +37,10 @@ public class PlayerAbilitiesScript : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             movementInput = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            DashMove();
         }
 
 

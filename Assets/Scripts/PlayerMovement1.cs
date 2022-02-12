@@ -183,23 +183,23 @@ public class PlayerMovement1 : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.H))
         {
-            if (moveInput == 1 && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))) {
+            if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))) {
                 //rb2d.MovePosition(new Vector2(transform.position.x + (1 * 15.0f), transform.position.y + (1 * 15.0f)));
-                rb2d.transform.Translate(new Vector3(transform.position.x + (1 * 15.0f), transform.position.y + (1 * 15.0f),0f));
+                rb2d.transform.Translate(new Vector3(rb2d.transform.position.x + 2f, transform.position.y + 2f, 0f));
                 Debug.Log("hi");
                 //rb2d.velocity = Vector2.right * 500f;
             }
-            if (moveInput == 1 && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))) {
+            else if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))) {
                 rb2d.MovePosition(new Vector2(transform.position.x + (Vector3.right.x * 15.0f), transform.position.y + (Vector3.up.y * 15.0f)));
 
                 //rb2d.velocity = Vector2.right * 500f;
             }
-            if (moveInput == 1)
+            else if (moveInput == 1)
             {
                 rb2d.MovePosition(transform.position + (Vector3.right * 15.0f));
                 //rb2d.velocity = Vector2.left * 500f;
             }
-            if (moveInput == -1)
+            else if (moveInput == -1)
             {
                 rb2d.MovePosition(transform.position + (Vector3.left * 15.0f));
                 //rb2d.velocity = Vector2.left * 500f;
