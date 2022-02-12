@@ -224,12 +224,13 @@ MonoBehaviour:
   Player: {fileID: 7367858350878337406}
   isDashing: 0
   canDash: 0
+  dashValue: 20
   glideTimeDefault: 1.8
   glideTime: 0
   extraJumpTime: 0
   dashTimeDefault: 0.4
   dashTime: 0
-  dashSpeed: 15
+  dashSpeed: 20
   startDashTime: 2
   movementInput: 0
   playerDirection: 0
