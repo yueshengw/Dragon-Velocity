@@ -8,11 +8,11 @@ public class PlayerMovement1 : MonoBehaviour
     public float moveSpeed;
     public float moveSpeed_copy;
     public float jump;
-    float moveVelocity;
+    public float moveVelocity;
 
     public bool grounded;
 
-    public bool dead;
+    public bool isDead;
 
     public Rigidbody2D rb2d;
 
@@ -36,7 +36,13 @@ public class PlayerMovement1 : MonoBehaviour
     public float dashTimeDefault;
     public float dashTime;
 
+    public float onGroundMovingTime;
+    public float movingTime;
+    public float leftAcceleration;
+    public float rightAcceleration;
     public bool newCheckpoint;
+
+    public float dashCoolDown;
     void Awake() {
         GameManager = GameObject.Find("GameManager");
         rb2d = GetComponent<Rigidbody2D>();
@@ -44,17 +50,93 @@ public class PlayerMovement1 : MonoBehaviour
         glideTime = glideTimeDefault;
         dashTime = dashTimeDefault;
     }
-    void Update () 
+    void FixedUpdate () 
     {
         moveVelocity = 0;
 
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) 
         {
-            moveVelocity = - moveSpeed;
+            /**
+            if (grounded == true)
+            {
+                onGroundMovingTime += Time.fixedDeltaTime;
+
+                if (onGroundMovingTime > 0.05f)
+                {
+                    if (rightAcceleration < 19f)
+                    {
+                        rightAcceleration += 1f;
+                    }
+                }
+                else
+                {
+                    rightAcceleration = 0f;
+                }
+            }
+            else
+            {
+                onGroundMovingTime = 0f;
+                rightAcceleration = 0f;
+            }
+            */
+            movingTime += Time.fixedDeltaTime;
+            if (movingTime > 0.1f)
+            {
+                if (rightAcceleration < 2f)
+                {
+                    rightAcceleration += 0.7f;
+                }
+            }
+            else
+            {
+                rightAcceleration = 0f;
+            }
+            moveVelocity = - moveSpeed- rightAcceleration;
         }
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) 
         {
-            moveVelocity = moveSpeed;
+            /**
+            if (grounded == true)
+            {
+                onGroundMovingTime += Time.fixedDeltaTime;
+
+                if (onGroundMovingTime > 0.05f)
+                {
+                    if (leftAcceleration < 19f)
+                    {
+                        leftAcceleration += 1f;
+                    }
+                }
+                else
+                {
+                    leftAcceleration = 0f;
+                }
+            }
+            else
+            {
+                onGroundMovingTime = 0f;
+                leftAcceleration = 0f;
+            }
+            **/
+            movingTime += Time.fixedDeltaTime;
+            if (movingTime > 0.1f)
+            {
+                if (leftAcceleration < 2f)
+                {
+                    leftAcceleration += 0.7f;
+                }
+            }
+            else
+            {
+                leftAcceleration = 0f;
+            }
+            moveVelocity = moveSpeed + leftAcceleration;
+        }
+        if (!(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && !(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)))
+        {
+            movingTime = 0f;
+            rightAcceleration = 0f;
+            leftAcceleration = 0f;
         }
         /*
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
@@ -87,17 +169,21 @@ public class PlayerMovement1 : MonoBehaviour
         moveInput = Input.GetAxisRaw("Horizontal");
         moveForce = new Vector3(moveInput * moveSpeed1, rb2d.velocity.y, 0);
         Vector3 m_Input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash == true)
+        if (Input.GetKeyDown(KeyCode.H) && canDash == true)
         {
+            dashCoolDown = 0.5f;
             isDashing = true;
             canDash = false;
             dashTime = dashTimeDefault;
             if (moveInput == 1) {
-            rb2d.MovePosition(transform.position + (Vector3.right * 10.0f));
+                rb2d.MovePosition(transform.position + (Vector3.right * 15.0f));
+                //rb2d.velocity = Vector2.right * 500f;
             }
             else if (moveInput == -1)
-            //transform.position += Vector3.left * 10.0f;
-            rb2d.MovePosition(transform.position + (Vector3.left * 10.0f));
+            {
+                rb2d.MovePosition(transform.position + (Vector3.left * 15.0f));
+                //rb2d.velocity = Vector2.left * 500f;
+            }
         }
         if (dashTime > 0)
         {
@@ -107,7 +193,10 @@ public class PlayerMovement1 : MonoBehaviour
         {
             isDashing = false;
         }
-
+        if (isDashing == false)
+        {
+            dashCoolDown -= Time.fixedDeltaTime;
+        }
         rb2d.velocity = new Vector2 (moveVelocity, rb2d.velocity.y);
 
     }
@@ -116,7 +205,7 @@ public class PlayerMovement1 : MonoBehaviour
     {
         if (collider.tag == "Death")
         {
-            dead = true;
+            isDead = true;
         }
         if (collider.tag == "Ground")
         {
@@ -134,7 +223,7 @@ public class PlayerMovement1 : MonoBehaviour
     {
         if (collider.tag == "Death")
         {
-            dead = true;
+            isDead = true;
         }
         if (collider.tag == "Ground")
         {
@@ -151,7 +240,7 @@ public class PlayerMovement1 : MonoBehaviour
     {
         if (collider.gameObject.tag == "Death")
         {
-            dead = true;
+            isDead = true;
         }
         if (collider.gameObject.tag == "Breakable" && isDashing == true)
         {

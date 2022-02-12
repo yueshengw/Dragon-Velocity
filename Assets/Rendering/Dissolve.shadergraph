@@ -375,7 +375,7 @@
     "hlslDeclarationOverride": 2,
     "m_Hidden": false,
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"374d9fe2d598b4a4a919477bd552dd91\",\"type\":3}}",
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"77288706b6188fb41b60ac270d65e1eb\",\"type\":3}}",
         "m_Guid": ""
     },
     "m_Modifiable": true,
@@ -395,9 +395,9 @@
         "m_Position": {
             "serializedVersion": "2",
             "x": -609.0,
-            "y": 42.999996185302737,
-            "width": 208.00001525878907,
-            "height": 434.0
+            "y": 42.5,
+            "width": 208.0,
+            "height": 434.0000305175781
         }
     },
     "m_Slots": [
@@ -1143,7 +1143,7 @@
     "m_ShaderOutputName": "In",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": 0.3400000035762787,
+        "x": 0.6000000238418579,
         "y": 0.0,
         "z": 0.0,
         "w": 0.0
@@ -1243,9 +1243,9 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -817.0,
-            "y": 523.5,
-            "width": 208.00001525878907,
+            "x": -876.5000610351563,
+            "y": 487.5,
+            "width": 208.0,
             "height": 302.0
         }
     },
