@@ -25,7 +25,7 @@ public class CheckpointScript : MonoBehaviour
         if (collider.tag == "Player")
         {
             isCheckpoint = true;
-            Player.GetComponent<PlayerMovementScript>().newCheckpoint = true;
+            Player.GetComponent<PlayerMovement1>().newCheckpoint = true;
         }
     }
 }

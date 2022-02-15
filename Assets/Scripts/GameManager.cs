@@ -22,15 +22,15 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //player.transform.position = new Vector3(respawnCod1.x,respawnCod1.y,respawnCod1.z);
-        checkpoint1 = GameObject.Find("Checkpoint/Checkpoint_1");
-        checkpoint2 = GameObject.Find("Checkpoint/Checkpoint_2");
+        //checkpoint1 = GameObject.Find("Checkpoint/Checkpoint_1");
+        //checkpoint2 = GameObject.Find("Checkpoint/Checkpoint_2");
         player.transform.position = checkpoint1.transform.position;
     }
 
     void Update()
     {
-        if (player.GetComponent<PlayerMovementScript>().isDead == true) {
-            if (player.GetComponent<PlayerMovementScript>().newCheckpoint == false)
+        if (player.GetComponent<PlayerMovement1>().isDead == true) {
+            if (player.GetComponent<PlayerMovement1>().newCheckpoint == false)
             {
                 //player.transform.position = new Vector3(respawnCod1.x, respawnCod1.y, respawnCod1.z);
                 player.transform.position = checkpoint1.transform.position;
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
             {
                 player.transform.position = checkpoint2.transform.position;
             }
-            player.GetComponent<PlayerMovementScript>().isDead = false;
+            player.GetComponent<PlayerMovement1>().isDead = false;
         }
     }
 
