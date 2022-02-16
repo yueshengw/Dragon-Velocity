@@ -28,6 +28,7 @@ public class PlayerMovement1 : MonoBehaviour
     public bool isDashing;
     public bool canDash;
     public float dashValue;
+    public float divideValue;
 
     public float glideTimeDefault;
     public float glideTime;
@@ -42,6 +43,7 @@ public class PlayerMovement1 : MonoBehaviour
     public float startDashTime;
     public float movementInput;
     public int playerDirection;
+
 
     //public bool isDashing;
 
@@ -193,7 +195,7 @@ public class PlayerMovement1 : MonoBehaviour
                 //rb2d.transform.Translate(new Vector3(dashValue * 0.8f, dashValue * 0.8f, 0f));
                 for (int i = 3; i >= 0; i--)
                 {
-                    rb2d.MovePosition(new Vector2(transform.position.x + dashValue/3, transform.position.y + dashValue/3));
+                    rb2d.MovePosition(new Vector2(transform.position.x + dashValue/ divideValue, transform.position.y + dashValue/ divideValue));
                 }
           
                 //Debug.Log("hi");
@@ -204,7 +206,7 @@ public class PlayerMovement1 : MonoBehaviour
                 //rb2d.transform.Translate(new Vector3(-dashValue*0.8f, dashValue * 0.8f, 0f));
                 for (int i = 3; i >= 0; i--)
                 {
-                    rb2d.MovePosition(new Vector2(transform.position.x - dashValue/3, transform.position.y + dashValue/3));
+                    rb2d.MovePosition(new Vector2(transform.position.x - dashValue/ divideValue, transform.position.y + dashValue/ divideValue));
                 }
                 //rb2d.velocity = Vector2.right * 500f;
             }
@@ -213,7 +215,7 @@ public class PlayerMovement1 : MonoBehaviour
                 //rb2d.MovePosition(transform.position + (Vector3.right * 15.0f));
                 for (int i = 3; i >= 0; i--)
                 {
-                    rb2d.MovePosition(new Vector2(transform.position.x + dashValue/3, transform.position.y));
+                    rb2d.MovePosition(new Vector2(transform.position.x + dashValue/ divideValue, transform.position.y));
                 }
                 //rb2d.transform.Translate(new Vector3(dashValue, 0f, 0f));
                 //rb2d.velocity = Vector2.left * 500f;
@@ -224,7 +226,7 @@ public class PlayerMovement1 : MonoBehaviour
                 rb2d.MovePosition(new Vector2(transform.position.x - dashValue, 0f));
                 for (int i = 3; i >= 0; i--)
                 {
-                    rb2d.MovePosition(new Vector2(transform.position.x - dashValue/3, transform.position.y));
+                    rb2d.MovePosition(new Vector2(transform.position.x - dashValue/ divideValue, transform.position.y));
                 }
                 //rb2d.transform.Translate(new Vector3(-dashValue, 0f, 0f));
                 //rb2d.velocity = Vector2.left * 500f;
