@@ -58988,6 +58988,58 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7367858350878337406, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
   m_PrefabInstance: {fileID: 7367858351957851829}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &1084757970
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084757963}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 795b44518f9e74be4a90892a3a64da16, type: 2}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.012794688, y: -0.09743254}
+  m_SpriteTilingProperty:
+    border: {x: 0.41, y: 0.04, z: 0.19, w: 0.04}
+    pivot: {x: 0.63623977, y: 0.51513773}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.01, y: 0.01}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.30998537, y: 0.86072993}
+  m_EdgeRadius: 0
+--- !u!61 &1084757971
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084757963}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 795b44518f9e74be4a90892a3a64da16, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.028622612, y: -0.018302754}
+  m_SpriteTilingProperty:
+    border: {x: 0.41, y: 0.04, z: 0.19, w: 0.04}
+    pivot: {x: 0.63623977, y: 0.51513773}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.01, y: 0.01}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.37961736, y: 0.9177048}
+  m_EdgeRadius: 0
 --- !u!1001 &1087787773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -130423,6 +130475,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1084757966, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367858350878337380, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7367858350878337381, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
       propertyPath: divideValue
       value: 3
