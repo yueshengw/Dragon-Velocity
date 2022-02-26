@@ -29,6 +29,7 @@ public class PlayerMovement1 : MonoBehaviour
     public bool canDash;
     public float dashValue;
     public float divideValue;
+    public int divideIntValue;
 
     public float glideTimeDefault;
     public float glideTime;
@@ -159,7 +160,7 @@ public class PlayerMovement1 : MonoBehaviour
             rb2d.MovePosition(transform.position + (Vector3.down * 2.0f));
         }
         */
-        if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) && grounded) 
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && grounded) 
         {
             rb2d.velocity = new Vector2(rb2d.velocity.x, jump);
         }
@@ -190,21 +191,21 @@ public class PlayerMovement1 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H) && canDash == true)
         {
             //Debug.Log("H Pressed");
+            //rb2d.gravityScale = 1.0f;
             if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))) {
                 //rb2d.MovePosition(new Vector2(transform.position.x + (1 * 15.0f), transform.position.y + (1 * 15.0f)));
                 //rb2d.transform.Translate(new Vector3(dashValue * 0.8f, dashValue * 0.8f, 0f));
-                for (int i = 3; i >= 0; i--)
+                for (int i = divideIntValue; i >= 0; i--)
                 {
                     rb2d.MovePosition(new Vector2(transform.position.x + dashValue/ divideValue, transform.position.y + dashValue/ divideValue));
                 }
-          
                 //Debug.Log("hi");
                 //rb2d.velocity = Vector2.right * 500f;
             }
             else if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))) {
                 //rb2d.MovePosition(new Vector2(transform.position.x + (Vector3.right.x * 15.0f), transform.position.y + (Vector3.up.y * 15.0f)));
                 //rb2d.transform.Translate(new Vector3(-dashValue*0.8f, dashValue * 0.8f, 0f));
-                for (int i = 3; i >= 0; i--)
+                for (int i = divideIntValue; i >= 0; i--)
                 {
                     rb2d.MovePosition(new Vector2(transform.position.x - dashValue/ divideValue, transform.position.y + dashValue/ divideValue));
                 }
@@ -213,7 +214,7 @@ public class PlayerMovement1 : MonoBehaviour
             else if (moveInput == 1)
             {
                 //rb2d.MovePosition(transform.position + (Vector3.right * 15.0f));
-                for (int i = 3; i >= 0; i--)
+                for (int i = divideIntValue; i >= 0; i--)
                 {
                     rb2d.MovePosition(new Vector2(transform.position.x + dashValue/ divideValue, transform.position.y));
                 }
@@ -224,13 +225,14 @@ public class PlayerMovement1 : MonoBehaviour
             {
                 //rb2d.MovePosition(transform.position + (Vector3.left * 15.0f));
                 rb2d.MovePosition(new Vector2(transform.position.x - dashValue, 0f));
-                for (int i = 3; i >= 0; i--)
+                for (int i = divideIntValue; i >= 0; i--)
                 {
                     rb2d.MovePosition(new Vector2(transform.position.x - dashValue/ divideValue, transform.position.y));
                 }
                 //rb2d.transform.Translate(new Vector3(-dashValue, 0f, 0f));
                 //rb2d.velocity = Vector2.left * 500f;
             }
+            //rb2d.gravityScale = 5.0f;
             dashCoolDown = 0.5f;
             isDashing = true;
             canDash = false;
@@ -250,7 +252,7 @@ public class PlayerMovement1 : MonoBehaviour
         {
             dashCoolDown -= Time.fixedDeltaTime;
         }
-        rb2d.velocity = new Vector2 (moveVelocity, rb2d.velocity.y);
+        rb2d.velocity = new Vector2 (moveVelocity, rb2d.velocity.y); 
 
     }
 
