@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement1 : MonoBehaviour
 {
@@ -332,6 +333,10 @@ public class PlayerMovement1 : MonoBehaviour
         {
             GameManager.GetComponent<GameManager>().Call1();
             collider.gameObject.SetActive(false);
+        }
+        if (collider.tag == "Outskirts Door")
+        {
+            SceneManager.LoadScene("TheosScene");
         }
     }
     private void OnTriggerStay2D(Collider2D collider)

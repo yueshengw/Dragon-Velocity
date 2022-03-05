@@ -10,6 +10,7 @@ TagManager:
   - Checkpoint
   - Breakable
   - Trigger1
+  - Outskirts Door
   layers:
   - Default
   - TransparentFX
