@@ -7,7 +7,7 @@ public class CheckpointScript : MonoBehaviour
     public bool isCheckpoint;
     public GameObject Player;
     public GameObject GameManager;
-
+    public bool activated;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,11 +25,12 @@ public class CheckpointScript : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.tag == "Player")
+        if (collider.tag == "Player" && activated == false)
         {
             isCheckpoint = true;
             Player.GetComponent<PlayerMovement1>().newCheckpoint = true;
             //GameManager.GetComponent<GameManager>().checkpointsGroup[0] += gameObject;
+            activated = true;
         }
     }
 }
