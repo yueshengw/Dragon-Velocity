@@ -29,6 +29,7 @@ public class PlayerMovement1 : MonoBehaviour
     public bool canDash;
     public float dashValue;
     public float divideValue;
+    public int divideIntValue;
 
     public float glideTimeDefault;
     public float glideTime;
@@ -54,6 +55,14 @@ public class PlayerMovement1 : MonoBehaviour
     public bool newCheckpoint;
 
     public float dashCoolDown;
+
+    [SerializeField] private AudioSource walkingAudio;
+    [SerializeField] private AudioSource jumpingAudio;
+    [SerializeField] private AudioSource landAudio;
+    [SerializeField] private AudioSource dashAudio;
+    [SerializeField] private AudioSource groundpoundAudio;
+    [SerializeField] private AudioSource glideAudio;
+
     void Awake() {
         grounded = false;
         GameManager = GameObject.Find("GameManager");
@@ -106,6 +115,7 @@ public class PlayerMovement1 : MonoBehaviour
             }
             moveVelocity = - moveSpeed- rightAcceleration;
         }
+
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) 
         {
             GetComponent<SpriteRenderer>().flipX = false;
@@ -146,11 +156,23 @@ public class PlayerMovement1 : MonoBehaviour
             }
             moveVelocity = moveSpeed + leftAcceleration;
         }
+        
         if (!(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && !(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)))
         {
             movingTime = 0f;
             rightAcceleration = 0f;
             leftAcceleration = 0f;
+        }
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            if (grounded == false)
+            {
+                if (playerDirection == 0)
+                {
+                    groundpoundAudio.Play();
+                    rb2d.velocity = Vector2.down * dashSpeed;
+                }
+            }
         }
         /*
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
@@ -159,8 +181,9 @@ public class PlayerMovement1 : MonoBehaviour
             rb2d.MovePosition(transform.position + (Vector3.down * 2.0f));
         }
         */
-        if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) && grounded) 
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && grounded) 
         {
+            jumpingAudio.Play();
             rb2d.velocity = new Vector2(rb2d.velocity.x, jump);
         }
         if (Input.GetKey(KeyCode.K) && !grounded && !Input.GetKey(KeyCode.Space) && rb2d.velocity.y <= 0f && glideTime > 0f) 
@@ -188,54 +211,58 @@ public class PlayerMovement1 : MonoBehaviour
             Debug.Log("hi");
         }
         if (Input.GetKeyDown(KeyCode.H) && canDash == true)
-        {
+        {   
             //Debug.Log("H Pressed");
+            //rb2d.gravityScale = 1.0f;
             if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))) {
                 //rb2d.MovePosition(new Vector2(transform.position.x + (1 * 15.0f), transform.position.y + (1 * 15.0f)));
                 //rb2d.transform.Translate(new Vector3(dashValue * 0.8f, dashValue * 0.8f, 0f));
-                for (int i = 3; i >= 0; i--)
+                for (int i = divideIntValue; i >= 0; i--)
                 {
                     rb2d.MovePosition(new Vector2(transform.position.x + dashValue/ divideValue, transform.position.y + dashValue/ divideValue));
                 }
-          
                 //Debug.Log("hi");
                 //rb2d.velocity = Vector2.right * 500f;
+                dashAudio.Play();
             }
             else if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))) {
                 //rb2d.MovePosition(new Vector2(transform.position.x + (Vector3.right.x * 15.0f), transform.position.y + (Vector3.up.y * 15.0f)));
                 //rb2d.transform.Translate(new Vector3(-dashValue*0.8f, dashValue * 0.8f, 0f));
-                for (int i = 3; i >= 0; i--)
+                for (int i = divideIntValue; i >= 0; i--)
                 {
                     rb2d.MovePosition(new Vector2(transform.position.x - dashValue/ divideValue, transform.position.y + dashValue/ divideValue));
                 }
                 //rb2d.velocity = Vector2.right * 500f;
+                dashAudio.Play();
             }
             else if (moveInput == 1)
             {
                 //rb2d.MovePosition(transform.position + (Vector3.right * 15.0f));
-                for (int i = 3; i >= 0; i--)
+                for (int i = divideIntValue; i >= 0; i--)
                 {
                     rb2d.MovePosition(new Vector2(transform.position.x + dashValue/ divideValue, transform.position.y));
                 }
                 //rb2d.transform.Translate(new Vector3(dashValue, 0f, 0f));
                 //rb2d.velocity = Vector2.left * 500f;
+                dashAudio.Play();
             }
             else if (moveInput == -1)
             {
                 //rb2d.MovePosition(transform.position + (Vector3.left * 15.0f));
                 rb2d.MovePosition(new Vector2(transform.position.x - dashValue, 0f));
-                for (int i = 3; i >= 0; i--)
+                for (int i = divideIntValue; i >= 0; i--)
                 {
                     rb2d.MovePosition(new Vector2(transform.position.x - dashValue/ divideValue, transform.position.y));
                 }
                 //rb2d.transform.Translate(new Vector3(-dashValue, 0f, 0f));
                 //rb2d.velocity = Vector2.left * 500f;
+                dashAudio.Play();
             }
+            //rb2d.gravityScale = 5.0f;
             dashCoolDown = 0.5f;
             isDashing = true;
             canDash = false;
             dashTime = dashTimeDefault;
-           
         }
         //DashMove();
         if (dashTime > 0)
@@ -250,8 +277,31 @@ public class PlayerMovement1 : MonoBehaviour
         {
             dashCoolDown -= Time.fixedDeltaTime;
         }
-        rb2d.velocity = new Vector2 (moveVelocity, rb2d.velocity.y);
+        rb2d.velocity = new Vector2 (moveVelocity, rb2d.velocity.y); 
 
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) && grounded == true)
+        {
+            if (!walkingAudio.isPlaying)
+            {
+                walkingAudio.Play();
+            }
+        }
+        else
+        {
+            walkingAudio.Stop();
+        }
+
+        if (Input.GetKey(KeyCode.K))
+        {
+            if (!glideAudio.isPlaying)
+            {
+                glideAudio.Play();
+            }
+        }
+        else
+        {
+            glideAudio.Stop();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -265,6 +315,7 @@ public class PlayerMovement1 : MonoBehaviour
             glideTime = glideTimeDefault;
             grounded = true;
             canDash = true;
+            landAudio.Play();
         }
         if (collider.tag == "Trigger1")
         {
