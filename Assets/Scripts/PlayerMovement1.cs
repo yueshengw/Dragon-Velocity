@@ -174,10 +174,6 @@ public class PlayerMovement1 : MonoBehaviour
                     rb2d.velocity = Vector2.down * dashSpeed;
                     isGroundPounding = true;
                 }
-                else
-                {
-                    isGroundPounding = false;
-                }
             }
         }
 
@@ -383,6 +379,7 @@ public class PlayerMovement1 : MonoBehaviour
         if (collider.gameObject.tag == "Ground")
         {
             canDash = true;
+            isGroundPounding = false;
         }
     }
     void DashMove()
