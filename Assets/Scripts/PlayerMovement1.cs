@@ -35,6 +35,8 @@ public class PlayerMovement1 : MonoBehaviour
     public float glideTime;
 
     public float extraJumpTime;
+    public float fallMultiplier;
+    public float lowJumpMultiplier;
 
     public float dashTimeDefault;
     public float dashTime;
@@ -55,6 +57,7 @@ public class PlayerMovement1 : MonoBehaviour
     public bool newCheckpoint;
 
     public float dashCoolDown;
+
     void Awake() {
         grounded = false;
         GameManager = GameObject.Find("GameManager");
@@ -163,6 +166,15 @@ public class PlayerMovement1 : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && grounded) 
         {
             rb2d.velocity = new Vector2(rb2d.velocity.x, jump);
+            //rb2d.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+        }
+        if (rb2d.velocity.y < 0)
+        {
+            rb2d.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (rb2d.velocity.y > 0 && !(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)))
+        {
+            rb2d.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.K) && !grounded && !Input.GetKey(KeyCode.Space) && rb2d.velocity.y <= 0f && glideTime > 0f) 
         {
@@ -188,7 +200,7 @@ public class PlayerMovement1 : MonoBehaviour
         {
             Debug.Log("hi");
         }
-        if (Input.GetKeyDown(KeyCode.H) && canDash == true)
+        if ((Input.GetKeyDown(KeyCode.H)|| Input.GetKeyDown(KeyCode.LeftShift)) && canDash == true)
         {
             //Debug.Log("H Pressed");
             //rb2d.gravityScale = 1.0f;
