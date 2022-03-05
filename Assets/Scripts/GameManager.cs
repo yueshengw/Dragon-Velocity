@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] fallableBreakableBlocks;
 
-    public GameObject[] checkpointsGroup = new GameObject[5];;
+    public GameObject[] checkpointsGroup = new GameObject[5];
 
     public float count1;
     void Start()
