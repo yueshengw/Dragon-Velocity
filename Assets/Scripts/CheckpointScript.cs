@@ -6,10 +6,13 @@ public class CheckpointScript : MonoBehaviour
 {
     public bool isCheckpoint;
     public GameObject Player;
+    public GameObject GameManager;
+
     // Start is called before the first frame update
     void Start()
     {
         //Player = GameObject.Find("Player");
+        GameManager = GameObject.Find("GameManager");
     }
 
     // Update is called once per frame
@@ -26,6 +29,7 @@ public class CheckpointScript : MonoBehaviour
         {
             isCheckpoint = true;
             Player.GetComponent<PlayerMovement1>().newCheckpoint = true;
+            //GameManager.GetComponent<GameManager>().checkpointsGroup[0] += gameObject;
         }
     }
 }
