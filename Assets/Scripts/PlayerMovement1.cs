@@ -56,7 +56,6 @@ public class PlayerMovement1 : MonoBehaviour
 
     public float dashCoolDown;
 
-
     [SerializeField] private AudioSource walkingAudio;
     [SerializeField] private AudioSource jumpingAudio;
     [SerializeField] private AudioSource landAudio;
@@ -289,8 +288,11 @@ public class PlayerMovement1 : MonoBehaviour
         {
             dashCoolDown -= Time.fixedDeltaTime;
         }
-        rb2d.velocity = new Vector2 (moveVelocity, rb2d.velocity.y); 
-
+        rb2d.velocity = new Vector2 (moveVelocity, rb2d.velocity.y);
+        if (Input.GetKey(KeyCode.R))
+        {
+            isDead = true;
+        }
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) && grounded == true)
         {
             if (!walkingAudio.isPlaying)
