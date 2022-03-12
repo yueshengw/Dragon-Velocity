@@ -96,6 +96,7 @@ public class PlayerMovement1 : MonoBehaviour
 
     public bool inputDisabled;
 
+    public GameObject DashGlow;
     //public SpriteGlowEffect spriteGlowEffect; 
     void Awake() {
         grounded = false;
@@ -115,7 +116,10 @@ public class PlayerMovement1 : MonoBehaviour
         {
             isDissolving = true;
         }
-
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            DashGlow.SetActive(false);
+        }
         if (isDissolving == true || isDead == true)
         {
             fade -= Time.deltaTime;
@@ -299,13 +303,15 @@ public class PlayerMovement1 : MonoBehaviour
             if (xRaw != 0 || yRaw != 0) { }
                 //Dash(xRaw, yRaw);
         }
-        
+        //DashGlow.SetActive(true);
+
         if (Input.GetKeyDown(KeyCode.H) && canDash == true && inputDisabled == false)
         {
-            GetComponent<SpriteGlowEffect>().out
+            //GetComponent<SpriteGlowEffect>().out
             //Debug.Log("H Pressed");
             //rb2d.gravityScale = 1.0f;
             if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))) {
+                DashGlow.SetActive(true);
                 //rb2d.MovePosition(new Vector2(transform.position.x + (1 * 15.0f), transform.position.y + (1 * 15.0f)));
                 //rb2d.transform.Translate(new Vector3(dashValue * 0.8f, dashValue * 0.8f, 0f));
                 for (int i = divideIntValue; i >= 0; i--)
@@ -317,6 +323,7 @@ public class PlayerMovement1 : MonoBehaviour
                 dashAudio.Play();
             }
             else if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))) {
+                DashGlow.SetActive(true);
                 //rb2d.MovePosition(new Vector2(transform.position.x + (Vector3.right.x * 15.0f), transform.position.y + (Vector3.up.y * 15.0f)));
                 //rb2d.transform.Translate(new Vector3(-dashValue*0.8f, dashValue * 0.8f, 0f));
                 for (int i = divideIntValue; i >= 0; i--)
@@ -328,6 +335,7 @@ public class PlayerMovement1 : MonoBehaviour
             }
             else if (moveInput == 1)
             {
+                DashGlow.SetActive(true);
                 //rb2d.MovePosition(transform.position + (Vector3.right * 15.0f));
                 for (int i = divideIntValue; i >= 0; i--)
                 {
@@ -339,6 +347,7 @@ public class PlayerMovement1 : MonoBehaviour
             }
             else if (moveInput == -1)
             {
+                DashGlow.SetActive(true);
                 //rb2d.MovePosition(transform.position + (Vector3.left * 15.0f));
                 rb2d.MovePosition(new Vector2(transform.position.x - dashValue, 0f));
                 for (int i = divideIntValue; i >= 0; i--)
@@ -364,6 +373,7 @@ public class PlayerMovement1 : MonoBehaviour
         else
         {
             isDashing = false;
+            DashGlow.SetActive(false);
         }
         if (isDashing == false)
         {
@@ -388,6 +398,7 @@ public class PlayerMovement1 : MonoBehaviour
 
         if (Input.GetKey(KeyCode.K))
         {
+            //DashGlow.SetActive(true);
             if (!glideAudio.isPlaying)
             {
                 glideAudio.Play();
@@ -403,7 +414,8 @@ public class PlayerMovement1 : MonoBehaviour
     {
         if (collider.tag == "Death")
         {
-            isDead = true;
+            DashGlow.SetActive(false);
+            //isDead = true;
             fade = 0.85f;
             material.SetFloat("_DissolveAmount", fade);
             inputDisabled = true;
@@ -452,7 +464,9 @@ public class PlayerMovement1 : MonoBehaviour
     {
         if (collider.gameObject.tag == "Death")
         {
+            DashGlow.SetActive(false);
             isDead = true;
+            inputDisabled = true;
         }
         if (collider.gameObject.tag == "Breakable" && isDashing == true)
         {

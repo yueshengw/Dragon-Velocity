@@ -31,12 +31,15 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (player.GetComponent<PlayerMovement1>().isDead == true) {
+        if (player.GetComponent<PlayerMovement1>().isDead == true)
+        {
             player.GetComponent<PlayerMovement1>().respawn = true;
+            player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         }
         if (player.GetComponent<PlayerMovement1>().deathTime <= 0f)
         {
             SetCheckpoint();
+            player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
 
