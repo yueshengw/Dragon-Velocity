@@ -12463,62 +12463,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1084757970, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
-      propertyPath: m_Size.x
-      value: 0.15895474
-      objectReference: {fileID: 0}
-    - target: {fileID: 1084757970, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.0037183352
-      objectReference: {fileID: 0}
-    - target: {fileID: 1084757971, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
-      propertyPath: m_Size.x
-      value: 0.18485251
-      objectReference: {fileID: 0}
-    - target: {fileID: 1084757971, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.0038157254
-      objectReference: {fileID: 0}
-    - target: {fileID: 695008487378274387, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
-      propertyPath: m_Volume
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1286144196108903830, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
-      propertyPath: m_Volume
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2349172540763189343, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
-      propertyPath: m_Size.x
-      value: 0.23654518
-      objectReference: {fileID: 0}
-    - target: {fileID: 2349172540763189343, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.016901553
-      objectReference: {fileID: 0}
-    - target: {fileID: 2349172540763189343, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.097432554
-      objectReference: {fileID: 0}
-    - target: {fileID: 3150736546663220940, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
-      propertyPath: m_Volume
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3891798226799698320, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
-      propertyPath: m_Volume
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3891798226799698320, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 606e4fb12271ff24b9bf400a54f6d43a, type: 3}
-    - target: {fileID: 4721519420743590466, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
-      propertyPath: m_Volume
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4998091533698992950, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
-      propertyPath: m_Volume
-      value: 0.25
-      objectReference: {fileID: 0}
     - target: {fileID: 7367858350878337401, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -12566,22 +12510,6 @@ PrefabInstance:
     - target: {fileID: 7367858350878337406, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8793326836030213397, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
-      propertyPath: m_Size.x
-      value: 0.21636812
-      objectReference: {fileID: 0}
-    - target: {fileID: 8793326836030213397, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
-      propertyPath: m_Size.y
-      value: 0.9177048
-      objectReference: {fileID: 0}
-    - target: {fileID: 8793326836030213397, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.012315981
-      objectReference: {fileID: 0}
-    - target: {fileID: 8793326836030213397, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.018302739
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
