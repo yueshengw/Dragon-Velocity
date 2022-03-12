@@ -50673,7 +50673,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.1, y: 7.3}
+  m_AnchoredPosition: {x: 8.1, y: 10.5}
   m_SizeDelta: {x: 26.9022, y: 13.0067}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &304980726
@@ -50696,9 +50696,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'A and D to move left and right
+  m_text: 'A and D to Move Left and Right
 
-    Space or W to jump'
+    Space or W to Jump'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -52642,7 +52642,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 89.66, y: 9.14}
+  m_AnchoredPosition: {x: 89.66, y: 17.9}
   m_SizeDelta: {x: 26.9022, y: 13.0067}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &563055297
@@ -52665,9 +52665,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Press H While Moving
+  m_text: 'Press H While Moving To Dash
 
-    to Dash'
+    (Jumping While Moving And Dashing Will
+    Perform A Diagonal Dash)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -55087,9 +55088,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'A and D to move left and right
+  m_text: 'A and D to Move Left and Right
 
-    Space or W to jump'
+    Space or W to Jump'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -58588,7 +58589,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 304.4, y: 48.89}
+  m_AnchoredPosition: {x: 304.4, y: 51}
   m_SizeDelta: {x: 26.9022, y: 13.0067}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1034921299
@@ -58611,11 +58612,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-    Press K To Glide
-
-    (No Jumping While Gliding)'
+  m_text: Hold K While in the Air to Glide
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -59884,9 +59881,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-    Dash To Break The Wood'
+  m_text: Have A Running Start While Dashing To Break Cracked Obstacles
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -63679,9 +63674,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Press H While Moving
+  m_text: 'Press H While Moving To Dash
 
-    to Dash'
+    (Jumping While Moving And Dashing Will
+    Perform A Diagonal Dash)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -122403,6 +122399,7 @@ MonoBehaviour:
   isCheckpoint: 0
   Player: {fileID: 1084757963}
   GameManager: {fileID: 0}
+  activated: 0
 --- !u!61 &1871488051
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -122539,11 +122536,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-    Press K To Glide
-
-    (No Jumping While Gliding)'
+  m_text: Hold K While in the Air to Glide
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -129574,7 +129567,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 181.94, y: 30.9}
+  m_AnchoredPosition: {x: 181.94, y: 35.3}
   m_SizeDelta: {x: 26.9022, y: 13.0067}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2145762059
@@ -129597,9 +129590,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-    Dash To Break The Wood'
+  m_text: Have A Running Start While Dashing To Break Cracked Obstacles
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
