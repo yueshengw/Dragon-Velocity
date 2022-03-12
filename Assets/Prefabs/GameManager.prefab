@@ -45,7 +45,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnCod1: {x: -19.9, y: 44.8, z: 0}
   respawn: 0
+  playerIsDead: 0
   player: {fileID: 0}
+  playerPrefab: {fileID: 7367858350878337406, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
   checkpoint1: {fileID: 0}
   checkpoint2: {fileID: 0}
   Gate: {fileID: 7716248073928829520, guid: 7b376947e92974694bae05bd87b9bdd6, type: 3}
@@ -53,4 +55,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  checkpointsGroup:
+  - {fileID: 0}
+  - {fileID: 0}
   count1: 0
+  lastCheckpointPosition: {x: -27.4, y: 111.9}
+  timer: 0

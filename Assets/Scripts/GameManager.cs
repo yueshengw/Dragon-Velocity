@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {   
     public Vector3 respawnCod1;
 
     public bool respawn;
+    public bool playerIsDead;
 
     public GameObject player;
+    public GameObject playerPrefab;
 
     public GameObject checkpoint1;
     public GameObject checkpoint2;
@@ -21,22 +24,33 @@ public class GameManager : MonoBehaviour
     public GameObject[] checkpointsGroup;
 
     public float count1;
+
+    private static GameManager instance;
+    public Vector2 lastCheckpointPosition;
+
+    public float timer;
+
     void Start()
     {
-        //player.transform.position = new Vector3(respawnCod1.x,respawnCod1.y,respawnCod1.z);
-        //checkpoint1 = GameObject.Find("Checkpoint/Checkpoint_1");
-        //checkpoint2 = GameObject.Find("Checkpoint/Checkpoint_2");
-        player.transform.position = checkpoint1.transform.position;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
     {
-        if (player.GetComponent<PlayerMovement1>().isDead == true) {
-            player.GetComponent<PlayerMovement1>().respawn = true;
-        }
-        if (player.GetComponent<PlayerMovement1>().deathTime <= 0f)
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (playerIsDead == true)
         {
-            SetCheckpoint();
+
+            Destroy(GameObject.FindGameObjectWithTag("Player"));
+            timer += Time.deltaTime;
+
+            if (timer >= 1.7f)
+            {
+                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                Instantiate(playerPrefab, lastCheckpointPosition, Quaternion.identity);
+                timer = 0f;
+                playerIsDead = false;
+            }
         }
     }
 
@@ -44,28 +58,6 @@ public class GameManager : MonoBehaviour
     {
         Invoke("CallGate1", 0);
         Invoke("CallGate2", 2f);
-    }
-
-    public void SetCheckpoint()
-    {
-        if (player.GetComponent<PlayerMovement1>().newCheckpoint == false)
-        {
-            //player.transform.position = new Vector3(respawnCod1.x, respawnCod1.y, respawnCod1.z);
-            player.transform.position = checkpoint1.transform.position;
-
-        }
-        else
-        {
-            player.transform.position = checkpoint2.transform.position;
-            for (int n = checkpointsGroup.Length-1; n > 0; n--)
-            {
-                if (checkpointsGroup[n].GetComponent<CheckpointScript>().activated == true)
-                {
-                    player.transform.position = checkpointsGroup[n].transform.position;
-                }
-                return;
-            }
-        }
     }
 
     public void CallGate1()
