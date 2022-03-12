@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using SpriteGlow;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -92,6 +93,8 @@ public class PlayerMovement1 : MonoBehaviour
     public bool respawn;
 
     public bool inputDisabled;
+
+    //public SpriteGlowEffect spriteGlowEffect; 
     void Awake() {
         grounded = false;
         GameManager = GameObject.Find("GameManager");
@@ -101,6 +104,7 @@ public class PlayerMovement1 : MonoBehaviour
         dashTime = dashTimeDefault;
         //material = GetComponent<SpriteRenderer>().material;
         deathTime = deathTimeDefault;
+        //spriteGlowEffect = GetComponent<SpriteGlowEffect>();
     }
     void Update () 
     {
@@ -290,7 +294,8 @@ public class PlayerMovement1 : MonoBehaviour
         }
         
         if (Input.GetKeyDown(KeyCode.H) && canDash == true && inputDisabled == false)
-        {   
+        {
+            GetComponent<SpriteGlowEffect>().out
             //Debug.Log("H Pressed");
             //rb2d.gravityScale = 1.0f;
             if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))) {
