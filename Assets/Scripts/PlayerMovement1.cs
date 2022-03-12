@@ -99,7 +99,6 @@ public class PlayerMovement1 : MonoBehaviour
         moveSpeed_copy = moveSpeed;
         glideTime = glideTimeDefault;
         dashTime = dashTimeDefault;
-        transform.position = GameManager.GetComponent<GameManager>().lastCheckpointPosition;
         //material = GetComponent<SpriteRenderer>().material;
         deathTime = deathTimeDefault;
     }
