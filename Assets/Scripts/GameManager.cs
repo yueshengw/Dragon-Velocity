@@ -37,21 +37,13 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        if (playerIsDead == true) {
-
-            Destroy(GameObject.FindGameObjectWithTag("Player"));
-            timer += Time.deltaTime;
-
-            if(timer >= 1.7f)
-            {
-                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                Instantiate(playerPrefab, lastCheckpointPosition, Quaternion.identity);
-                timer = 0f;
-                playerIsDead = false;
-            }
+        if (player.GetComponent<PlayerMovement1>().isDead == true) {
+            player.GetComponent<PlayerMovement1>().respawn = true;
         }
-
+        if (player.GetComponent<PlayerMovement1>().deathTime <= 0f)
+        {
+            SetCheckpoint();
+        }
     }
 
     public void Call1()
