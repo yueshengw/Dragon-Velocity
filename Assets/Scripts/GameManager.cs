@@ -32,8 +32,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (player.GetComponent<PlayerMovement1>().isDead == true) {
+            player.GetComponent<PlayerMovement1>().respawn = true;
+        }
+        if (player.GetComponent<PlayerMovement1>().deathTime <= 0f)
+        {
             SetCheckpoint();
-            player.GetComponent<PlayerMovement1>().isDead = false;
         }
     }
 
