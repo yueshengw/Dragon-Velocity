@@ -110,7 +110,7 @@ public class PlayerMovement1 : MonoBehaviour
             isDissolving = true;
         }
 
-        if (isDissolving == true || isDead == true)
+        if (isDissolving == true || GameManager.GetComponent<GameManager>().playerIsDead == true)
         {
             fade -= Time.deltaTime;
             if (fade <= 0f)
@@ -128,10 +128,10 @@ public class PlayerMovement1 : MonoBehaviour
             }
             else if (deathTime <= 0f)
             {
-                isDead = false;
+                GameManager.GetComponent<GameManager>().playerIsDead = false;
             }
         }
-        if (isDead == false)
+        if (GameManager.GetComponent<GameManager>().playerIsDead == false)
         {
             fade = 1f;
             material.SetFloat("_DissolveAmount", fade);
@@ -391,7 +391,7 @@ public class PlayerMovement1 : MonoBehaviour
     {
         if (collider.tag == "Death")
         {
-            isDead = true;
+            GameManager.GetComponent<GameManager>().playerIsDead = true;
             fade = 0.85f;
             material.SetFloat("_DissolveAmount", fade);
             inputDisabled = true;
