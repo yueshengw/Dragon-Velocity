@@ -59040,6 +59040,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7367858350878337406, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
   m_PrefabInstance: {fileID: 7367858351957851829}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1084757980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084757963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df2220013d8f49d4827a31d3985c672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallMultiplier: 3
+  lowJumpMultiplier: 8
 --- !u!1001 &1087787773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -130109,6 +130123,26 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7367858350878337381, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
+      propertyPath: speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367858350878337381, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
+      propertyPath: jumpForce
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367858350878337381, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
+      propertyPath: dashSpeed1
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367858350878337381, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
+      propertyPath: slideSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367858350878337381, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
+      propertyPath: wallJumpLerp
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367858350878337381, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
       propertyPath: fallMultiplier
       value: 1.2
       objectReference: {fileID: 0}
@@ -130223,6 +130257,18 @@ PrefabInstance:
       objectReference: {fileID: 1159175661}
     - target: {fileID: 8187242328400803885, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
       propertyPath: checkpoint2
+      value: 
+      objectReference: {fileID: 1871488047}
+    - target: {fileID: 8187242328400803885, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
+      propertyPath: checkpointsGroup.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187242328400803885, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
+      propertyPath: checkpointsGroup.Array.data[0]
+      value: 
+      objectReference: {fileID: 1159175661}
+    - target: {fileID: 8187242328400803885, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
+      propertyPath: checkpointsGroup.Array.data[1]
       value: 
       objectReference: {fileID: 1871488047}
     - target: {fileID: 8187242328400803885, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}

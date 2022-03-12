@@ -55,7 +55,28 @@ public class PlayerMovement1 : MonoBehaviour
     public bool newCheckpoint;
 
     public float dashCoolDown;
+    [Space]
+    [Header("Stats")]
+    public float speed = 10;
+    public float jumpForce = 50;
+    public float slideSpeed = 5;
+    public float wallJumpLerp = 10;
+    public float dashSpeed1 = 20;
 
+    [Space]
+    [Header("Booleans")]
+    public bool canMove;
+    public bool wallGrab;
+    public bool wallJumped;
+    public bool wallSlide;
+    public bool isDashing1;
+
+    [Space]
+
+    private bool groundTouch;
+    private bool hasDashed;
+
+    public int side = 1;
     [SerializeField] private AudioSource walkingAudio;
     [SerializeField] private AudioSource jumpingAudio;
     [SerializeField] private AudioSource landAudio;
@@ -221,6 +242,14 @@ public class PlayerMovement1 : MonoBehaviour
         {
             Debug.Log("hi");
         }
+        float xRaw = Input.GetAxisRaw("Horizontal");
+        float yRaw = Input.GetAxisRaw("Vertical");
+        if (Input.GetKeyDown(KeyCode.H) && canDash == true)
+        {
+            if (xRaw != 0 || yRaw != 0)
+                Dash(xRaw, yRaw);
+        }
+        /**
         if (Input.GetKeyDown(KeyCode.H) && canDash == true)
         {   
             //Debug.Log("H Pressed");
@@ -275,6 +304,7 @@ public class PlayerMovement1 : MonoBehaviour
             canDash = false;
             dashTime = dashTimeDefault;
         }
+        */
         //DashMove();
         if (dashTime > 0)
         {
@@ -425,5 +455,49 @@ public class PlayerMovement1 : MonoBehaviour
                 }
             }
         }
+    }
+    private void Dash(float x, float y)
+    {
+        //Camera.main.transform.DOComplete();
+        //Camera.main.transform.DOShakePosition(.2f, .5f, 14, 90, false, true);
+        //FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
+
+        hasDashed = true;
+
+        //anim.SetTrigger("dash");
+
+        rb2d.velocity = Vector2.zero;
+        Vector2 dir = new Vector2(x, y);
+
+        rb2d.velocity += dir.normalized * dashSpeed1;
+        StartCoroutine(DashWait());
+    }
+
+    IEnumerator DashWait()
+    {
+        //FindObjectOfType<GhostTrail>().ShowGhost();
+        StartCoroutine(GroundDash());
+        //DOVirtual.Float(14, 0, .8f, RigidbodyDrag);
+
+        //dashParticle.Play();
+        rb2d.gravityScale = 0;
+        GetComponent<BetterJumping>().enabled = false;
+        wallJumped = true;
+        isDashing1 = true;
+
+        yield return new WaitForSeconds(.3f);
+
+        //dashParticle.Stop();
+        rb2d.gravityScale = 3;
+        GetComponent<BetterJumping>().enabled = true;
+        //wallJumped = false;
+        isDashing1 = false;
+    }
+
+    IEnumerator GroundDash()
+    {
+        yield return new WaitForSeconds(.15f);
+        //if (coll.onGround)
+        //    hasDashed = false;
     }
 }
