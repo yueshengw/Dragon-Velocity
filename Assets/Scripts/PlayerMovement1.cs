@@ -27,6 +27,7 @@ public class PlayerMovement1 : MonoBehaviour
     public GameObject Player;
 
     public bool isDashing;
+    public bool isGroundPounding;
     public bool canDash;
     public float dashValue;
     public float divideValue;
@@ -43,13 +44,9 @@ public class PlayerMovement1 : MonoBehaviour
     public float dashTime;
 
     public float dashSpeed;
-    //private float dashTime;
     public float startDashTime;
     public float movementInput;
     public int playerDirection;
-
-
-    //public bool isDashing;
 
     public float onGroundMovingTime;
     public float movingTime;
@@ -174,9 +171,11 @@ public class PlayerMovement1 : MonoBehaviour
                 {
                     groundpoundAudio.Play();
                     rb2d.velocity = Vector2.down * dashSpeed;
+                    isGroundPounding = true;
                 }
             }
         }
+
         /*
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
@@ -201,12 +200,12 @@ public class PlayerMovement1 : MonoBehaviour
         if (Input.GetKey(KeyCode.K) && !grounded && !Input.GetKey(KeyCode.Space) && rb2d.velocity.y <= 0f && glideTime > 0f) 
         {
             glideTime -= Time.deltaTime;
-            rb2d.gravityScale = 1.0f;
+            rb2d.drag = 5.0f;
             moveSpeed = moveSpeed_copy * 1.3f;
         }
         else
         {
-            rb2d.gravityScale = 5.0f;
+            rb2d.drag = 0f;
             moveSpeed = moveSpeed_copy;
         }
 
@@ -337,9 +336,15 @@ public class PlayerMovement1 : MonoBehaviour
             GameManager.GetComponent<GameManager>().Call1();
             collider.gameObject.SetActive(false);
         }
+
+        //All Scene Transitions
         if (collider.tag == "Outskirts Door")
         {
             SceneManager.LoadScene("TheosScene");
+        }
+        if (collider.tag == "Forest Door")
+        {
+            //play dragon mother cutscene
         }
     }
     private void OnTriggerStay2D(Collider2D collider)
@@ -369,9 +374,14 @@ public class PlayerMovement1 : MonoBehaviour
         {
             Destroy(collider.gameObject);
         }
+        if(collider.gameObject.tag == "Breakable" && isGroundPounding == true)
+        {
+            Destroy(collider.gameObject);
+        }
         if (collider.gameObject.tag == "Ground")
         {
             canDash = true;
+            isGroundPounding = false;
         }
     }
     void DashMove()

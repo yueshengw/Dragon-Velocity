@@ -11,6 +11,7 @@ TagManager:
   - Breakable
   - Trigger1
   - Outskirts Door
+  - Forest Door
   layers:
   - Default
   - TransparentFX
