@@ -226,6 +226,7 @@ MonoBehaviour:
   jump: 20
   moveVelocity: 0
   grounded: 1
+  isDead: 0
   rb2d: {fileID: 7367858350878337400}
   moveSpeed1: 0
   moveInput: 0
