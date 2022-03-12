@@ -118,7 +118,7 @@ public class PlayerMovement1 : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            DashGlow.SetActive(false);
+            //DashGlow.SetActive(false);
         }
         if (isDissolving == true || isDead == true)
         {

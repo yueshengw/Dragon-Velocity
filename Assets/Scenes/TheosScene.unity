@@ -12402,6 +12402,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7367858350878337381, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
+      propertyPath: dashTimeDefault
+      value: 0.55
+      objectReference: {fileID: 0}
     - target: {fileID: 7367858350878337401, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -12449,6 +12453,18 @@ PrefabInstance:
     - target: {fileID: 7367858350878337406, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001619156098656388, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001619156098656388, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001619156098656391, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}

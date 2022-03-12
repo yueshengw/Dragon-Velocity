@@ -245,7 +245,7 @@ MonoBehaviour:
   extraJumpTime: 0
   fallMultiplier: 1.2
   lowJumpMultiplier: 1
-  dashTimeDefault: 0.5
+  dashTimeDefault: 0.55
   dashTime: 0
   dashSpeed: 20
   startDashTime: 2
@@ -1334,7 +1334,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8001619156098656387}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -39.86375, y: 0.13800049, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7367858350878337401}
@@ -1379,7 +1379,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 77288706b6188fb41b60ac270d65e1eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

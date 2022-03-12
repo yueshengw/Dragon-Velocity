@@ -22,6 +22,6 @@ public class DashGlow : MonoBehaviour
         {
             transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
-        transform.position = player.transform.position;
+        //transform.position = player.transform.position;
     }
 }
