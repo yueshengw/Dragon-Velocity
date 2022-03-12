@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public bool playerIsDead;
 
     public GameObject player;
+    public GameObject playerPrefab;
 
     public GameObject checkpoint1;
     public GameObject checkpoint2;
@@ -29,39 +30,28 @@ public class GameManager : MonoBehaviour
 
     public float timer;
 
-    void Awake()
-    {
-        if(instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(instance);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-        player = GameObject.Find("Player");
-    }
     void Start()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
         if (playerIsDead == true) {
 
-            Destroy(GameObject.Find("Player"));
+            Destroy(GameObject.FindGameObjectWithTag("Player"));
             timer += Time.deltaTime;
 
             if(timer >= 1.7f)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                Instantiate(playerPrefab, lastCheckpointPosition, Quaternion.identity);
                 timer = 0f;
                 playerIsDead = false;
             }
         }
+
     }
 
     public void Call1()

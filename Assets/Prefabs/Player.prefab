@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 695008487378274387}
   - component: {fileID: 2349172540763189343}
   - component: {fileID: 8793326836030213397}
+  - component: {fileID: 5182252498901178188}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -225,7 +226,6 @@ MonoBehaviour:
   jump: 20
   moveVelocity: 0
   grounded: 1
-  isDead: 0
   rb2d: {fileID: 7367858350878337400}
   moveSpeed1: 0
   moveInput: 0
@@ -233,6 +233,7 @@ MonoBehaviour:
   moveForce: {x: 0, y: 0, z: 0}
   Player: {fileID: 7367858350878337406}
   isDashing: 0
+  isGroundPounding: 0
   canDash: 0
   dashValue: 27
   divideValue: 5
@@ -240,7 +241,7 @@ MonoBehaviour:
   glideTimeDefault: 1.8
   glideTime: 0
   extraJumpTime: 0
-  fallMultiplier: 1.4
+  fallMultiplier: 1.2
   lowJumpMultiplier: 1
   dashTimeDefault: 0.4
   dashTime: 0
@@ -254,6 +255,17 @@ MonoBehaviour:
   rightAcceleration: 0
   newCheckpoint: 0
   dashCoolDown: 0
+  speed: 4
+  jumpForce: 4
+  slideSpeed: 1
+  wallJumpLerp: 5
+  dashSpeed1: 22
+  canMove: 0
+  wallGrab: 0
+  wallJumped: 0
+  wallSlide: 0
+  isDashing1: 0
+  side: 1
   walkingAudio: {fileID: 3891798226799698320}
   jumpingAudio: {fileID: 1286144196108903830}
   landAudio: {fileID: 4998091533698992950}
@@ -972,6 +984,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.37961736, y: 0.9177048}
   m_EdgeRadius: 0
+--- !u!114 &5182252498901178188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7367858350878337406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df2220013d8f49d4827a31d3985c672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallMultiplier: 3
+  lowJumpMultiplier: 8
 --- !u!1 &7367858351250875695
 GameObject:
   m_ObjectHideFlags: 0
