@@ -53,6 +53,7 @@ public class PlayerMovement1 : MonoBehaviour
     public bool newCheckpoint;
 
     public float dashCoolDown;
+    /**
     [Space]
     [Header("Stats")]
     public float speed = 10;
@@ -73,7 +74,7 @@ public class PlayerMovement1 : MonoBehaviour
 
     private bool groundTouch;
     private bool hasDashed;
-
+    **/
     public int side = 1;
     [SerializeField] private AudioSource walkingAudio;
     [SerializeField] private AudioSource jumpingAudio;
@@ -82,6 +83,15 @@ public class PlayerMovement1 : MonoBehaviour
     [SerializeField] private AudioSource groundpoundAudio;
     [SerializeField] private AudioSource glideAudio;
 
+    public Material material;
+
+    public bool isDissolving = false;
+    public float fade = 1f;
+    public float deathTimeDefault;
+    public float deathTime;
+    public bool respawn;
+
+    public bool inputDisabled;
     void Awake() {
         grounded = false;
         GameManager = GameObject.Find("GameManager");
@@ -90,10 +100,46 @@ public class PlayerMovement1 : MonoBehaviour
         glideTime = glideTimeDefault;
         dashTime = dashTimeDefault;
         transform.position = GameManager.GetComponent<GameManager>().lastCheckpointPosition;
+        //material = GetComponent<SpriteRenderer>().material;
+        deathTime = deathTimeDefault;
     }
     void Update () 
     {
         moveVelocity = 0;
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            isDissolving = true;
+        }
+
+        if (isDissolving == true || isDead == true)
+        {
+            fade -= Time.deltaTime;
+            if (fade <= 0f)
+            {
+                fade = 0f;
+                isDissolving = false;
+            }
+            material.SetFloat("_DissolveAmount", fade);
+        }
+        if (respawn == true)
+        {
+            if (deathTime > 0f)
+            {
+                deathTime -= Time.deltaTime;
+            }
+            else if (deathTime <= 0f)
+            {
+                isDead = false;
+            }
+        }
+        if (isDead == false)
+        {
+            fade = 1f;
+            material.SetFloat("_DissolveAmount", fade);
+            respawn = false;
+            deathTime = deathTimeDefault;
+            inputDisabled = false;
+        }
 
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) 
         {
@@ -136,7 +182,7 @@ public class PlayerMovement1 : MonoBehaviour
             moveVelocity = - moveSpeed- rightAcceleration;
         }
 
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) 
+        if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && inputDisabled == false) 
         {
             GetComponent<SpriteRenderer>().flipX = false;
             /**
@@ -177,13 +223,13 @@ public class PlayerMovement1 : MonoBehaviour
             moveVelocity = moveSpeed + leftAcceleration;
         }
         
-        if (!(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && !(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)))
+        if ((!(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && !(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))) && inputDisabled == false)
         {
             movingTime = 0f;
             rightAcceleration = 0f;
             leftAcceleration = 0f;
         }
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && inputDisabled == false)
         {
             if (grounded == false)
             {
@@ -203,7 +249,7 @@ public class PlayerMovement1 : MonoBehaviour
             rb2d.MovePosition(transform.position + (Vector3.down * 2.0f));
         }
         */
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && grounded) 
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && grounded && inputDisabled == false) 
         {
             jumpingAudio.Play();
             rb2d.velocity = new Vector2(rb2d.velocity.x, jump);
@@ -240,11 +286,11 @@ public class PlayerMovement1 : MonoBehaviour
         float yRaw = Input.GetAxisRaw("Vertical");
         if (Input.GetKeyDown(KeyCode.H) && canDash == true)
         {
-            if (xRaw != 0 || yRaw != 0)
-                Dash(xRaw, yRaw);
+            if (xRaw != 0 || yRaw != 0) { }
+                //Dash(xRaw, yRaw);
         }
-        /**
-        if (Input.GetKeyDown(KeyCode.H) && canDash == true)
+        
+        if (Input.GetKeyDown(KeyCode.H) && canDash == true && inputDisabled == false)
         {   
             //Debug.Log("H Pressed");
             //rb2d.gravityScale = 1.0f;
@@ -298,7 +344,7 @@ public class PlayerMovement1 : MonoBehaviour
             canDash = false;
             dashTime = dashTimeDefault;
         }
-        */
+        
         //DashMove();
         if (dashTime > 0)
         {
@@ -346,7 +392,10 @@ public class PlayerMovement1 : MonoBehaviour
     {
         if (collider.tag == "Death")
         {
-            GameManager.GetComponent<GameManager>().playerIsDead = true;
+            isDead = true;
+            fade = 0.85f;
+            material.SetFloat("_DissolveAmount", fade);
+            inputDisabled = true;
         }
         if (collider.tag == "Ground")
         {
@@ -450,6 +499,7 @@ public class PlayerMovement1 : MonoBehaviour
             }
         }
     }
+    /**
     private void Dash(float x, float y)
     {
         //Camera.main.transform.DOComplete();
@@ -494,4 +544,5 @@ public class PlayerMovement1 : MonoBehaviour
         //if (coll.onGround)
         //    hasDashed = false;
     }
+    */
 }

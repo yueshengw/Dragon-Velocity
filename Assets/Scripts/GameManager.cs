@@ -50,8 +50,13 @@ public class GameManager : MonoBehaviour
                 timer = 0f;
                 playerIsDead = false;
             }
+        if (player.GetComponent<PlayerMovement1>().isDead == true) {
+            player.GetComponent<PlayerMovement1>().respawn = true;
         }
-
+        if (player.GetComponent<PlayerMovement1>().deathTime <= 0f)
+        {
+            SetCheckpoint();
+        }
     }
 
     public void Call1()
