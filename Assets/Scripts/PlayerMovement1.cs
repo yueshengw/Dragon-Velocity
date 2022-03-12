@@ -99,7 +99,6 @@ public class PlayerMovement1 : MonoBehaviour
         moveSpeed_copy = moveSpeed;
         glideTime = glideTimeDefault;
         dashTime = dashTimeDefault;
-        transform.position = GameManager.GetComponent<GameManager>().lastCheckpointPosition;
         //material = GetComponent<SpriteRenderer>().material;
         deathTime = deathTimeDefault;
     }
@@ -392,7 +391,6 @@ public class PlayerMovement1 : MonoBehaviour
     {
         if (collider.tag == "Death")
         {
-            GameManager.GetComponent<GameManager>().playerIsDead = true;
             isDead = true;
             fade = 0.85f;
             material.SetFloat("_DissolveAmount", fade);
