@@ -24,7 +24,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        //player.transform.position = new Vector3(respawnCod1.x,respawnCod1.y,respawnCod1.z);
+        //checkpoint1 = GameObject.Find("Checkpoint/Checkpoint_1");
+        //checkpoint2 = GameObject.Find("Checkpoint/Checkpoint_2");
+        player.transform.position = checkpointsGroup[2].transform.position;
     }
 
     void Update()
