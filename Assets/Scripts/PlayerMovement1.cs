@@ -273,7 +273,7 @@ public class PlayerMovement1 : MonoBehaviour
         {
             rb2d.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.K) && !grounded && !Input.GetKey(KeyCode.Space) && rb2d.velocity.y <= 0f && glideTime > 0f) 
+        if (Input.GetKey(KeyCode.K) && !grounded && !Input.GetKey(KeyCode.Space) && rb2d.velocity.y <= 0f && glideTime > 0f)
         {
             glideTime -= Time.deltaTime;
             rb2d.drag = 5.0f;
@@ -294,14 +294,14 @@ public class PlayerMovement1 : MonoBehaviour
         }
         float xRaw = Input.GetAxisRaw("Horizontal");
         float yRaw = Input.GetAxisRaw("Vertical");
-        if (Input.GetKeyDown(KeyCode.H) && canDash == true)
+        if (Input.GetKeyDown(KeyCode.H) || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true)
         {
             if (xRaw != 0 || yRaw != 0) { }
                 //Dash(xRaw, yRaw);
         }
         //DashGlow.SetActive(true);
 
-        if (Input.GetKeyDown(KeyCode.H) && canDash == true && inputDisabled == false)
+        if (Input.GetKeyDown(KeyCode.H) || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && inputDisabled == false)
         {
             //GetComponent<SpriteGlowEffect>().out
             //Debug.Log("H Pressed");
