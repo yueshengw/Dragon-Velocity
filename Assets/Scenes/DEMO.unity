@@ -51058,7 +51058,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'A and D to Move Left and Right
 
-    Space or W to Jump'
+    Space/W to Jump'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -52602,7 +52602,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 376.7375, y: 112.92, z: -10}
+  m_LocalPosition: {x: -26.8, y: 113, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53086,10 +53086,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Press H While Moving To Dash
+  m_text: 'Press H/LeftShift While Moving To Dash
 
-    (Jumping While Moving And Dashing Will
-    Perform A Diagonal Dash)'
+    (Jumping While Moving And
+    Dashing Will Perform A Diagonal Dash)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -55515,7 +55515,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'A and D to Move Left and Right
 
-    Space or W to Jump'
+    Space/W to Jump'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -55801,11 +55801,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1428368370212300149, guid: fa64b50e03dc745acbbb3b613bbe0116, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 93.1
+      value: 96.3
       objectReference: {fileID: 0}
     - target: {fileID: 1428368370212300149, guid: fa64b50e03dc745acbbb3b613bbe0116, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22
+      value: 20.8
       objectReference: {fileID: 0}
     - target: {fileID: 1428368370212300149, guid: fa64b50e03dc745acbbb3b613bbe0116, type: 3}
       propertyPath: m_LocalPosition.z
@@ -64194,10 +64194,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Press H While Moving To Dash
+  m_text: 'Press H/LeftShift While Moving To Dash
 
-    (Jumping While Moving And Dashing Will
-    Perform A Diagonal Dash)'
+    (Jumping While Moving And
+    Dashing Will Perform A Diagonal Dash)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -130825,7 +130825,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7367858350878337381, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
       propertyPath: glideTimeDefault
-      value: 100
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 7367858350878337401, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
       propertyPath: m_RootOrder
@@ -130833,11 +130833,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7367858350878337401, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 376.7375
+      value: -26.8
       objectReference: {fileID: 0}
     - target: {fileID: 7367858350878337401, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 112.92
+      value: 113
       objectReference: {fileID: 0}
     - target: {fileID: 7367858350878337401, guid: 2b14a318ee92d435d8e72d1ffbc10a25, type: 3}
       propertyPath: m_LocalPosition.z
@@ -130944,6 +130944,14 @@ PrefabInstance:
       propertyPath: checkpoint2
       value: 
       objectReference: {fileID: 1871488047}
+    - target: {fileID: 8187242328400803885, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
+      propertyPath: lastCheckpointPosition.x
+      value: -26.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187242328400803885, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
+      propertyPath: lastCheckpointPosition.y
+      value: 113
+      objectReference: {fileID: 0}
     - target: {fileID: 8187242328400803885, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
       propertyPath: checkpointsGroup.Array.size
       value: 3
