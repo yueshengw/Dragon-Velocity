@@ -294,14 +294,14 @@ public class PlayerMovement1 : MonoBehaviour
         }
         float xRaw = Input.GetAxisRaw("Horizontal");
         float yRaw = Input.GetAxisRaw("Vertical");
-        if (Input.GetKeyDown(KeyCode.H) || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true)
+        if ((Input.GetKeyDown(KeyCode.H) || Input.GetKeyDown(KeyCode.LeftShift)) && canDash == true)
         {
             if (xRaw != 0 || yRaw != 0) { }
                 //Dash(xRaw, yRaw);
         }
         //DashGlow.SetActive(true);
 
-        if (Input.GetKeyDown(KeyCode.H) || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && inputDisabled == false)
+        if ((Input.GetKeyDown(KeyCode.H) || Input.GetKeyDown(KeyCode.LeftShift)) && canDash == true && inputDisabled == false)
         {
             //GetComponent<SpriteGlowEffect>().out
             //Debug.Log("H Pressed");
