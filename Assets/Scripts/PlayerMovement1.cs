@@ -98,7 +98,8 @@ public class PlayerMovement1 : MonoBehaviour
 
     public GameObject DashGlow;
     //public SpriteGlowEffect spriteGlowEffect; 
-    void Awake() {
+    void Awake() 
+    {
         grounded = false;
         GameManager = GameObject.Find("GameManager");
         rb2d = GetComponent<Rigidbody2D>();
