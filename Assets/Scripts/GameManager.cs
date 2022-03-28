@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         //player.transform.position = new Vector3(respawnCod1.x,respawnCod1.y,respawnCod1.z);
         //checkpoint1 = GameObject.Find("Checkpoint/Checkpoint_1");
         //checkpoint2 = GameObject.Find("Checkpoint/Checkpoint_2");
-        player.transform.position = checkpointsGroup[2].transform.position;
+        player.transform.position = checkpoint1.transform.position;
     }
 
     void Update()
@@ -44,6 +44,10 @@ public class GameManager : MonoBehaviour
             Instantiate(playerPrefab, lastCheckpointPosition, Quaternion.identity);
             player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
             Destroy(GameObject.FindGameObjectWithTag("Player"));
+        }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            player.transform.position = checkpointsGroup[1].transform.position;
         }
     }
 
