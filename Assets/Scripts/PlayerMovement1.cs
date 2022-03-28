@@ -98,7 +98,8 @@ public class PlayerMovement1 : MonoBehaviour
 
     public GameObject DashGlow;
     //public SpriteGlowEffect spriteGlowEffect; 
-    void Awake() {
+    void Awake() 
+    {
         grounded = false;
         GameManager = GameObject.Find("GameManager");
         rb2d = GetComponent<Rigidbody2D>();
@@ -294,14 +295,14 @@ public class PlayerMovement1 : MonoBehaviour
         }
         float xRaw = Input.GetAxisRaw("Horizontal");
         float yRaw = Input.GetAxisRaw("Vertical");
-        if (Input.GetKeyDown(KeyCode.H) || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true)
+        if ((Input.GetKeyDown(KeyCode.H) || Input.GetKeyDown(KeyCode.LeftShift)) && canDash == true)
         {
             if (xRaw != 0 || yRaw != 0) { }
                 //Dash(xRaw, yRaw);
         }
         //DashGlow.SetActive(true);
 
-        if (Input.GetKeyDown(KeyCode.H) || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && inputDisabled == false)
+        if ((Input.GetKeyDown(KeyCode.H) || Input.GetKeyDown(KeyCode.LeftShift)) && canDash == true && inputDisabled == false)
         {
             //GetComponent<SpriteGlowEffect>().out
             //Debug.Log("H Pressed");

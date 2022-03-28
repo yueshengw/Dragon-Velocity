@@ -17,37 +17,29 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] fallableBreakableBlocks;
 
-    public GameObject[] checkpointsGroup;
-
     public float count1;
     public float deathTimer;
 
     void Start()
     {
-        //player.transform.position = new Vector3(respawnCod1.x,respawnCod1.y,respawnCod1.z);
-        //checkpoint1 = GameObject.Find("Checkpoint/Checkpoint_1");
-        //checkpoint2 = GameObject.Find("Checkpoint/Checkpoint_2");
-        player.transform.position = checkpoint1.transform.position;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
     {
         player = GameObject.FindGameObjectWithTag("Player");
 
-        if (player.GetComponent<PlayerMovement1>().isDead == true)
+        if (player.GetComponent<PlayerMovementScript>().isDead == true)
         {
-            player.GetComponent<PlayerMovement1>().respawn = true;
+            //player.GetComponent<PlayerMovement1>().respawn = true;
+            player.GetComponent<PlayerMovementScript>().respawn = true;
             player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         }
-        if (player.GetComponent<PlayerMovement1>().deathTime <= 0f)
+        if (player.GetComponent<PlayerMovementScript>().deathTime <= 0f)
         {
-            Instantiate(playerPrefab, lastCheckpointPosition, Quaternion.identity);
+            Instantiate (playerPrefab, lastCheckpointPosition, Quaternion.identity);
             player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
             Destroy(GameObject.FindGameObjectWithTag("Player"));
-        }
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            player.transform.position = checkpointsGroup[1].transform.position;
         }
     }
 
