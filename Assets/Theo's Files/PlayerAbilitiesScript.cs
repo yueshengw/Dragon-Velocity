@@ -103,10 +103,12 @@ public class PlayerAbilitiesScript : MonoBehaviour
         if (Input.GetKey(KeyCode.K) && GetComponent<PlayerMovementScript>().isGrounded == false)
         {
             rb2D.drag = 10;
+            tr.emitting = true;
         }
         if (Input.GetKeyUp(KeyCode.K))
         {
             rb2D.drag = 0;
+            tr.emitting = false;
         }
 
         if (Input.GetKey(KeyCode.K))
