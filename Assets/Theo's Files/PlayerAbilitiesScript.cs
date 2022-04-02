@@ -100,18 +100,18 @@ public class PlayerAbilitiesScript : MonoBehaviour
  
     void GlideMove()
     {
-        if (Input.GetKey(KeyCode.K) && GetComponent<PlayerMovementScript>().isGrounded == false)
+        if ((Input.GetKey(KeyCode.K) || Input.GetKey(KeyCode.V)) && GetComponent<PlayerMovementScript>().isGrounded == false)
         {
-            rb2D.drag = 10;
+            rb2D.drag = 15;
             tr.emitting = true;
         }
-        if (Input.GetKeyUp(KeyCode.K))
+        else if ((Input.GetKeyUp(KeyCode.K) || Input.GetKeyUp(KeyCode.V)))
         {
             rb2D.drag = 0;
             tr.emitting = false;
         }
 
-        if (Input.GetKey(KeyCode.K))
+        if ((Input.GetKey(KeyCode.K) || Input.GetKey(KeyCode.V)))
         {
             //DashGlow.SetActive(true);
             if (!glideAudio.isPlaying)
