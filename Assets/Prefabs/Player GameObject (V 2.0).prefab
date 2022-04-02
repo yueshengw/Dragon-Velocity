@@ -228,6 +228,7 @@ MonoBehaviour:
   startDashTime: 0.5
   movementInput: 0
   playerDirection: 0
+  stompForce: -30
   dashAudio: {fileID: 2153737585904491945}
   groundpoundAudio: {fileID: 2153737585904491944}
   glideAudio: {fileID: 403426123742269154}
