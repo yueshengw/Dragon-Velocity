@@ -98,7 +98,8 @@ public class PlayerMovement1 : MonoBehaviour
 
     public GameObject DashGlow;
     //public SpriteGlowEffect spriteGlowEffect; 
-    void Awake() {
+    void Awake() 
+    {
         grounded = false;
         GameManager = GameObject.Find("GameManager");
         rb2d = GetComponent<Rigidbody2D>();
@@ -273,7 +274,7 @@ public class PlayerMovement1 : MonoBehaviour
         {
             rb2d.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.K) && !grounded && !Input.GetKey(KeyCode.Space) && rb2d.velocity.y <= 0f && glideTime > 0f) 
+        if (Input.GetKey(KeyCode.K) && !grounded && !Input.GetKey(KeyCode.Space) && rb2d.velocity.y <= 0f && glideTime > 0f)
         {
             glideTime -= Time.deltaTime;
             rb2d.drag = 5.0f;
@@ -285,11 +286,6 @@ public class PlayerMovement1 : MonoBehaviour
             moveSpeed = moveSpeed_copy;
         }
 
-        if (Input.GetKey(KeyCode.Q)) 
-        {
-            transform.position = new Vector3(-28.8f, 101.7f, 0f);
-        }
-
         moveInput = Input.GetAxisRaw("Horizontal");
         moveForce = new Vector3(moveInput * moveSpeed1, rb2d.velocity.y, 0);
         //Vector3 m_Input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
@@ -299,14 +295,14 @@ public class PlayerMovement1 : MonoBehaviour
         }
         float xRaw = Input.GetAxisRaw("Horizontal");
         float yRaw = Input.GetAxisRaw("Vertical");
-        if (Input.GetKeyDown(KeyCode.H) && canDash == true)
+        if ((Input.GetKeyDown(KeyCode.H) || Input.GetKeyDown(KeyCode.LeftShift)) && canDash == true)
         {
             if (xRaw != 0 || yRaw != 0) { }
                 //Dash(xRaw, yRaw);
         }
         //DashGlow.SetActive(true);
 
-        if (Input.GetKeyDown(KeyCode.H) && canDash == true && inputDisabled == false)
+        if ((Input.GetKeyDown(KeyCode.H) || Input.GetKeyDown(KeyCode.LeftShift)) && canDash == true && inputDisabled == false)
         {
             //GetComponent<SpriteGlowEffect>().out
             //Debug.Log("H Pressed");
@@ -366,7 +362,6 @@ public class PlayerMovement1 : MonoBehaviour
             dashTime = dashTimeDefault;
         }
         
-        //DashMove();
         if (dashTime > 0)
         {
             dashTime -= Time.fixedDeltaTime;
@@ -383,7 +378,7 @@ public class PlayerMovement1 : MonoBehaviour
         rb2d.velocity = new Vector2 (moveVelocity, rb2d.velocity.y);
         if (Input.GetKey(KeyCode.R))
         {
-            isDead = true;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) && grounded == true)
         {
@@ -481,48 +476,6 @@ public class PlayerMovement1 : MonoBehaviour
         {
             canDash = true;
             isGroundPounding = false;
-        }
-    }
-    void DashMove()
-    {
-        if (moveInput == 0)
-        {
-            if (Input.GetKeyDown(KeyCode.H))
-            {
-                //dashAudio.Play();
-                if (movementInput == -1)
-                {
-                    playerDirection = 1;
-                }
-                else if (movementInput == 1)
-                {
-                    playerDirection = 2;
-                }
-            }
-        }
-        else
-        {
-            if (dashTime <= 0)
-            {
-                playerDirection = 0;
-                dashTime = startDashTime;
-                rb2d.velocity = Vector2.zero;
-            }
-            else
-            {
-                dashTime -= Time.deltaTime;
-
-                if (playerDirection == 1)
-                {
-                    rb2d.velocity = Vector2.left * dashSpeed;
-                    isDashing = true;
-                }
-                else if (playerDirection == 2)
-                {
-                    rb2d.velocity = Vector2.right * dashSpeed;
-                    isDashing = true;
-                }
-            }
         }
     }
     /**

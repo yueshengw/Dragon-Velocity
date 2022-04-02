@@ -11,7 +11,7 @@ public class CheckpointScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Player = GameObject.Find("Player");
+        Player = GameObject.Find("Player");
         GameManager = GameObject.Find("GameManager");
     }
 
@@ -28,9 +28,8 @@ public class CheckpointScript : MonoBehaviour
         if (collider.tag == "Player" && activated == false)
         {
             isCheckpoint = true;
-            Player.GetComponent<PlayerMovement1>().newCheckpoint = true;
-            //GameManager.GetComponent<GameManager>().checkpointsGroup[0] += gameObject;
             activated = true;
+            GameManager.GetComponent<GameManager>().lastCheckpointPosition = transform.position;
         }
     }
 }
