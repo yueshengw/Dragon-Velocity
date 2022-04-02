@@ -169,7 +169,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 77288706b6188fb41b60ac270d65e1eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -231,7 +231,7 @@ MonoBehaviour:
   dashAudio: {fileID: 2153737585904491945}
   groundpoundAudio: {fileID: 2153737585904491944}
   glideAudio: {fileID: 403426123742269154}
-  dashingVelocity: 30
+  dashingVelocity: 35
   dashingTime: 0.5
 --- !u!61 &2153737585904491949
 BoxCollider2D:
@@ -896,7 +896,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_Time: 0.5
   m_Parameters:
     serializedVersion: 3

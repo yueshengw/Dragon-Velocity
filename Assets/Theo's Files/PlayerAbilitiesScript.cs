@@ -12,6 +12,8 @@ public class PlayerAbilitiesScript : MonoBehaviour
 
     private bool isGroundPounding;
 
+    [SerializeField] private float stompForce;
+
     [SerializeField] private AudioSource dashAudio;
     [SerializeField] private AudioSource groundpoundAudio;
     [SerializeField] private AudioSource glideAudio;
@@ -90,15 +92,10 @@ public class PlayerAbilitiesScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
-            if (GetComponent<PlayerMovementScript>().isGrounded == false)
-            {
-                if (playerDirection == 0)
-                {
-                    groundpoundAudio.Play();
-                    rb2D.velocity = Vector2.down * dashingVelocity;
-                    isGroundPounding = true;
-                }
-            }
+            tr.emitting = true;
+            groundpoundAudio.Play();
+            rb2D.velocity = new Vector2(rb2D.velocity.x, stompForce);
+            StartCoroutine(StopDashing());
         }
     }
  
@@ -136,6 +133,10 @@ public class PlayerAbilitiesScript : MonoBehaviour
         if (collider.gameObject.tag == "Breakable" && isGroundPounding == true)
         {
             Destroy(collider.gameObject);
+        }
+        if (collider.gameObject.tag == "Ground")
+        {
+            isGroundPounding = false;
         }
     }
 }
