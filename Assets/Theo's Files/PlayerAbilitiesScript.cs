@@ -10,7 +10,8 @@ public class PlayerAbilitiesScript : MonoBehaviour
     public float movementInput;
     public int playerDirection;
 
-    private bool isGroundPounding;
+    private bool isStomping;
+    private bool canStomp = true;
 
     [SerializeField] private float stompForce;
 
@@ -37,7 +38,7 @@ public class PlayerAbilitiesScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GroundPoundMove();
+        StompMove();
         BrakeMove();
         GlideMove();
         DashMove();
@@ -48,6 +49,7 @@ public class PlayerAbilitiesScript : MonoBehaviour
         yield return new WaitForSeconds(dashingTime);
         tr.emitting = false;
         isDashing = false;
+        isStomping = false;
     }
 
     void DashMove()
@@ -72,11 +74,6 @@ public class PlayerAbilitiesScript : MonoBehaviour
             rb2D.velocity = dashingDirection.normalized * dashingVelocity;
             return;
         }
-
-        if (GetComponent<PlayerMovementScript>().isGrounded == true)
-        {
-            canDash = true;
-        }
     }
     void BrakeMove()
     {
@@ -88,13 +85,15 @@ public class PlayerAbilitiesScript : MonoBehaviour
             }
         }
     }
-    void GroundPoundMove()
+    void StompMove()
     {
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) && canStomp == true)
         {
             tr.emitting = true;
             groundpoundAudio.Play();
             rb2D.velocity = new Vector2(rb2D.velocity.x, stompForce);
+            isStomping = true;
+            canStomp = false;
             StartCoroutine(StopDashing());
         }
     }
@@ -130,13 +129,30 @@ public class PlayerAbilitiesScript : MonoBehaviour
         {
             Destroy(collider.gameObject);
         }
-        if (collider.gameObject.tag == "Breakable" && isGroundPounding == true)
+        if (collider.gameObject.tag == "Breakable" && isStomping == true)
+        {
+            Destroy(collider.gameObject);
+        }
+        if(collider.gameObject.tag == "Ground")
+        {
+            canDash = true;
+            canStomp = true;
+        }
+    }
+    private void OnCollisionStay2D(Collision2D collider)
+    {
+        if (collider.gameObject.tag == "Breakable" && isDashing == true)
+        {
+            Destroy(collider.gameObject);
+        }
+        if (collider.gameObject.tag == "Breakable" && isStomping == true)
         {
             Destroy(collider.gameObject);
         }
         if (collider.gameObject.tag == "Ground")
         {
-            isGroundPounding = false;
+            canDash = true;
+            canStomp = true;
         }
     }
 }
