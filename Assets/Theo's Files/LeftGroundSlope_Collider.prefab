@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 751867287400555900}
   - component: {fileID: 751867287400555901}
   m_Layer: 0
-  m_Name: LeftGroundSlope_Collider (Type_ Medium)
+  m_Name: LeftGroundSlope_Collider
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,9 +47,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -9.299789, y: 8.799904}
-  - {x: -1.2082291, y: 0.6141987}
-  - {x: 8.70134, y: -9.197899}
+  - {x: -5.89999, y: 5.2}
+  - {x: 4.9000015, y: -5.6}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0

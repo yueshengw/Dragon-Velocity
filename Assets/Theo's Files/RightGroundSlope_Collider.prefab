@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8141043817824691978
+--- !u!1 &2951095243721448794
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,36 +8,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8141043817824691976}
-  - component: {fileID: 8141043817824691977}
+  - component: {fileID: 2951095243721448792}
+  - component: {fileID: 2951095243721448793}
   m_Layer: 0
-  m_Name: RightGroundSlope_Collider (Type_ Medium)
+  m_Name: RightGroundSlope_Collider
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8141043817824691976
+--- !u!4 &2951095243721448792
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8141043817824691978}
+  m_GameObject: {fileID: 2951095243721448794}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 187.51, y: -10.1, z: 0}
+  m_LocalPosition: {x: 590.59, y: 18.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!68 &8141043817824691977
+--- !u!68 &2951095243721448793
 EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8141043817824691978}
+  m_GameObject: {fileID: 2951095243721448794}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -47,9 +47,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -9.299789, y: 8.799904}
-  - {x: -1.2082291, y: 0.6141987}
-  - {x: 12.398333, y: -12.786552}
+  - {x: -9.45, y: 8.810005}
+  - {x: 1.3499904, y: -1.9900036}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
