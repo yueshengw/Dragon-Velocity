@@ -62,7 +62,19 @@ public class PlayerMovementScript : MonoBehaviour
         inputX = Input.GetAxisRaw("Horizontal");
         rb2D.velocity = new Vector2(inputX * speed, rb2D.velocity.y);
 
-        if((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded == true)
+        if(Input.GetKeyDown(KeyCode.W) && isGrounded == true)
+        {
+            rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
+            jumpingAudio.Play();
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
+        {
+            rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
+            jumpingAudio.Play();
+        }
+
+        if(Input.GetKeyDown(KeyCode.UpArrow) && isGrounded == true)
         {
             rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
             jumpingAudio.Play();

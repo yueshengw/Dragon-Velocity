@@ -169,7 +169,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 77288706b6188fb41b60ac270d65e1eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -228,10 +228,11 @@ MonoBehaviour:
   startDashTime: 0.5
   movementInput: 0
   playerDirection: 0
+  stompForce: -30
   dashAudio: {fileID: 2153737585904491945}
   groundpoundAudio: {fileID: 2153737585904491944}
   glideAudio: {fileID: 403426123742269154}
-  dashingVelocity: 30
+  dashingVelocity: 35
   dashingTime: 0.5
 --- !u!61 &2153737585904491949
 BoxCollider2D:
@@ -246,7 +247,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.010358065, y: -0.045461178}
+  m_Offset: {x: -0.0064044744, y: -0.045461178}
   m_SpriteTilingProperty:
     border: {x: 0.41, y: 0.04, z: 0.19, w: 0.04}
     pivot: {x: 0.63623977, y: 0.51513773}
@@ -257,7 +258,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3679577, y: 0.85935104}
+  m_Size: {x: 0.20009783, y: 0.85935104}
   m_EdgeRadius: 0
 --- !u!50 &2153737585904491948
 Rigidbody2D:
@@ -896,7 +897,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_Time: 0.5
   m_Parameters:
     serializedVersion: 3
