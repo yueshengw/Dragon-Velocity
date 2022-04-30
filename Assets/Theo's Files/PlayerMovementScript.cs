@@ -14,6 +14,7 @@ public class PlayerMovementScript : MonoBehaviour
     public int playerHealth;
 
     private Rigidbody2D rb2D;
+    private Animator anim;
     //[SerializeField] private Transform groundCheck;
     //[SerializeField] private float groundCheckRadius;
     [SerializeField] private float speed;
@@ -24,6 +25,7 @@ public class PlayerMovementScript : MonoBehaviour
     [SerializeField] private AudioSource landAudio;
 
     public bool isDashing;
+    public bool isMoving;
     public bool canDash;
     public GameObject GameManager;
     public bool newCheckpoint;
@@ -44,6 +46,7 @@ public class PlayerMovementScript : MonoBehaviour
         GameManager = GameObject.Find("GameManager");
         rb2D = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         deathTime = deathTimeDefault;
+        anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
     }
     // Start is called before the first frame update
     void Start()
@@ -51,6 +54,7 @@ public class PlayerMovementScript : MonoBehaviour
         isDead = false;
         GameManager = GameObject.Find("GameManager");
         rb2D = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+        anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -58,6 +62,7 @@ public class PlayerMovementScript : MonoBehaviour
     {
         rb2D = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         GameManager = GameObject.Find("GameManager");
+        anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
 
         inputX = Input.GetAxisRaw("Horizontal");
         rb2D.velocity = new Vector2(inputX * speed, rb2D.velocity.y);
@@ -80,22 +85,47 @@ public class PlayerMovementScript : MonoBehaviour
             jumpingAudio.Play();
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             flip = true;
+
             if (flip == true)
             {
                 GetComponent<SpriteRenderer>().flipX = true;
             }
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             flip = false;
+
             if (flip == false)
             {
                 GetComponent<SpriteRenderer>().flipX = false;
             }
+        }
+
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
+
+        if (isMoving == true)
+        {
+            anim.SetBool("IsRunning", true);
+        }
+        else if (isMoving == false)
+        {
+            anim.SetBool("IsRunning", false);
+        }
+
+        if (isGrounded == false)
+        {
+            anim.SetBool("IsRunning", false);
         }
 
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) && isGrounded == true)

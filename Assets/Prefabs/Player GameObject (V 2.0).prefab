@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 2153737585904491944}
   - component: {fileID: 403426123742269154}
   - component: {fileID: 2153737585904491943}
+  - component: {fileID: 1925758918}
   m_Layer: 0
   m_Name: Player GameObject (V 2.0)
   m_TagString: Player
@@ -170,7 +171,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 77288706b6188fb41b60ac270d65e1eb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7f26458faa058cf4a86adc3b01a57982, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -203,6 +204,7 @@ MonoBehaviour:
   jumpingAudio: {fileID: 2153737585904491947}
   landAudio: {fileID: 2153737585904491946}
   isDashing: 0
+  isMoving: 0
   canDash: 0
   GameManager: {fileID: 0}
   newCheckpoint: 0
@@ -233,7 +235,7 @@ MonoBehaviour:
   groundpoundAudio: {fileID: 2153737585904491944}
   glideAudio: {fileID: 403426123742269154}
   dashingVelocity: 35
-  dashingTime: 0.5
+  dashingTime: 0.27
 --- !u!61 &2153737585904491949
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -249,8 +251,8 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.0064044744, y: -0.045461178}
   m_SpriteTilingProperty:
-    border: {x: 0.41, y: 0.04, z: 0.19, w: 0.04}
-    pivot: {x: 0.63623977, y: 0.51513773}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
     newSize: {x: 0.01, y: 0.01}
     adaptiveTilingThreshold: 0.5
@@ -982,6 +984,25 @@ TrailRenderer:
   m_MinVertexDistance: 0
   m_Autodestruct: 0
   m_Emitting: 0
+--- !u!95 &1925758918
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2153737585904491942}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 619a8dc51b54042a4a8ccf1baac93c34, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2153737586353096015
 GameObject:
   m_ObjectHideFlags: 0

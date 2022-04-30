@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAbilitiesScript : MonoBehaviour
 {
     private Rigidbody2D rb2D;
+    private Animator anim;
     private float dashTime;
     public float startDashTime;
     public float movementInput;
@@ -33,6 +34,7 @@ public class PlayerAbilitiesScript : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         dashTime = startDashTime;
         tr = GetComponent<TrailRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -71,8 +73,14 @@ public class PlayerAbilitiesScript : MonoBehaviour
 
         if (isDashing)
         {
+            anim.SetBool("IsDashing", true);
+
             rb2D.velocity = dashingDirection.normalized * dashingVelocity;
             return;
+        }
+        else
+        {
+            anim.SetBool("IsDashing", false);
         }
     }
     void BrakeMove()
@@ -95,6 +103,15 @@ public class PlayerAbilitiesScript : MonoBehaviour
             isStomping = true;
             canStomp = false;
             StartCoroutine(StopDashing());
+        }
+
+        if (isStomping)
+        {
+            anim.SetBool("IsStomping", true);
+        }
+        else
+        {
+            anim.SetBool("IsStomping", false);
         }
     }
  

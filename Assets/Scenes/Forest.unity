@@ -42346,10 +42346,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player GameObject (V 2.0)
       objectReference: {fileID: 0}
-    - target: {fileID: 2153737585904491950, guid: 44c1bce2a9a5c2943a673dbfdcf8c6c5, type: 3}
-      propertyPath: dashingTime
-      value: 0.27
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44c1bce2a9a5c2943a673dbfdcf8c6c5, type: 3}
 --- !u!1001 &1271243212
