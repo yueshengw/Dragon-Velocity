@@ -160,11 +160,11 @@ public class PlayerAbilitiesScript : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collider)
     {
-        if (collider.gameObject.tag == "Breakable" && isDashing == true)
+        if (collider.gameObject.tag == "Breakable_Wall" && isDashing == true)
         {
             Destroy(collider.gameObject);
         }
-        if (collider.gameObject.tag == "Breakable" && isStomping == true)
+        if (collider.gameObject.tag == "Breakable_Floor" && isStomping == true)
         {
             Destroy(collider.gameObject);
         }

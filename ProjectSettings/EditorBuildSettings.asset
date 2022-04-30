@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/DEMO.unity
     guid: 9c92a9188cd2245f790719bbb41a9ba4
   - enabled: 1
-    path: Assets/Scenes/TheosScene.unity
+    path: Assets/Scenes/The Outskirts.unity
     guid: d9e3acf0e7a64a64299ce52238b5de7c
   m_configObjects: {}

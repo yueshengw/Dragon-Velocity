@@ -8,10 +8,11 @@ TagManager:
   - Ground
   - Wall
   - Checkpoint
-  - Breakable
   - Trigger1
   - Outskirts Door
   - Forest Door
+  - Breakable_Wall
+  - Breakable_Floor
   layers:
   - Default
   - TransparentFX
