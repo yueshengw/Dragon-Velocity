@@ -13,6 +13,7 @@ TagManager:
   - Forest Door
   - Breakable_Wall
   - Breakable_Floor
+  - Dragon Egg
   layers:
   - Default
   - TransparentFX

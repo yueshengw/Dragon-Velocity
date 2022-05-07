@@ -143,6 +143,7 @@ public class PlayerMovementScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Time.timeScale = 1f;
         }
 
         if (isDissolving == true || isDead == true)
@@ -200,7 +201,7 @@ public class PlayerMovementScript : MonoBehaviour
         //All Scene Transitions
         if (collider.gameObject.tag == "Outskirts Door")
         {
-            SceneManager.LoadScene("TheosScene");
+            SceneManager.LoadScene("The Outskirts");
         }
         if (collider.gameObject.tag == "Forest Door")
         {
