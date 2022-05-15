@@ -40,6 +40,7 @@ public class PlayerMovementScript : MonoBehaviour
     public bool respawn;
 
     public bool inputDisabled;
+    public TrailRenderer tr;
 
     void Awake()
     {
@@ -67,19 +68,19 @@ public class PlayerMovementScript : MonoBehaviour
         inputX = Input.GetAxisRaw("Horizontal");
         rb2D.velocity = new Vector2(inputX * speed, rb2D.velocity.y);
 
-        if(Input.GetKeyDown(KeyCode.W) && isGrounded == true)
+        if (Input.GetKeyDown(KeyCode.W) && isGrounded == true)
         {
             rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
             jumpingAudio.Play();
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
         {
             rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
             jumpingAudio.Play();
         }
 
-        if(Input.GetKeyDown(KeyCode.UpArrow) && isGrounded == true)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded == true)
         {
             rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
             jumpingAudio.Play();
@@ -190,7 +191,7 @@ public class PlayerMovementScript : MonoBehaviour
             inputDisabled = true;
         }
 
-        if (collider.gameObject.tag == "Ground")
+        if (collider.gameObject.tag == "Ground" || collider.gameObject.tag == "Slippery")
         {
             isGrounded = true;
             canDash = true;
@@ -202,9 +203,17 @@ public class PlayerMovementScript : MonoBehaviour
         {
             SceneManager.LoadScene("TheosScene");
         }
+
         if (collider.gameObject.tag == "Forest Door")
         {
             //play dragon mother cutscene
+        }
+
+        if (collider.gameObject.tag == "Slippery")
+        {
+            speed = 60;
+            jumpForce = 65;
+            tr.emitting = true;
         }
     }
 
@@ -214,7 +223,7 @@ public class PlayerMovementScript : MonoBehaviour
         {
             playerHealth -= 1;
         }
-        if (collider.gameObject.tag == "Ground")
+        if (collider.gameObject.tag == "Ground" || collider.gameObject.tag == "Slippery")
         {
             isGrounded = true;
             canDash = true;
@@ -223,13 +232,37 @@ public class PlayerMovementScript : MonoBehaviour
         {
             isDead = true;
         }
+        if (collider.gameObject.tag == "Slippery")
+        {
+            //gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * 10, ForceMode2D.Impulse);
+        }
+        if (collider.gameObject.tag == "Slippery")
+        {
+            speed = 60;
+            jumpForce = 65;
+            tr.emitting = true;
+        }
+
     }
 
     private void OnCollisionExit2D(Collision2D collider)
     {
-        if (collider.gameObject.tag == "Ground")
+        if (collider.gameObject.tag == "Ground" || collider.gameObject.tag == "Slippery")
         {
             isGrounded = false;
         }
+
+        if (collider.gameObject.tag == "Slippery")
+        {
+            StartCoroutine(CoroutineSlip());
+        }
+    }
+
+    IEnumerator CoroutineSlip()
+    {
+        yield return new WaitForSeconds(1);
+        speed = 35;
+        jumpForce = 30;
+        tr.emitting = false;
     }
 }

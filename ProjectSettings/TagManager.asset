@@ -12,6 +12,7 @@ TagManager:
   - Trigger1
   - Outskirts Door
   - Forest Door
+  - Slippery
   layers:
   - Default
   - TransparentFX
