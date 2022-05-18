@@ -29,7 +29,12 @@ public class ChoicePanelManager : MonoBehaviour
             {
                 Pause();
             }
+            else
+            {
+                Resume();
+            }
         }
+        
     }
     public void Resume()
     {
@@ -58,15 +63,15 @@ public class ChoicePanelManager : MonoBehaviour
         GameObject.FindGameObjectWithTag("Dragon Egg").GetComponent<BoxCollider2D>().enabled = false;
         eggInteracted = false;
     }
-    void Pause()
+    public void Pause()
     {
         choicePanelUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
         gameText.SetActive(false);
     }
-    public void LoadMenu()
+    /*public void LoadMenu()
     {
 
-    }
+    }*/
 }

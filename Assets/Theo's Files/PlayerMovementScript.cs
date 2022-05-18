@@ -197,6 +197,12 @@ public class PlayerMovementScript : MonoBehaviour
             canDash = true;
             landAudio.Play();
         }
+        if (collider.gameObject.tag == "Breakable_Floor")
+        {
+            isGrounded = true;
+            canDash = true;
+            landAudio.Play();
+        }
 
         //All Scene Transitions
         if (collider.gameObject.tag == "Outskirts Door")
@@ -206,6 +212,7 @@ public class PlayerMovementScript : MonoBehaviour
         if (collider.gameObject.tag == "Forest Door")
         {
             //play dragon mother cutscene
+            SceneManager.LoadScene("Forest");
         }
     }
 
@@ -215,12 +222,19 @@ public class PlayerMovementScript : MonoBehaviour
         {
             playerHealth -= 1;
         }
+
         if (collider.gameObject.tag == "Ground")
         {
             isGrounded = true;
             canDash = true;
         }
-        if(collider.gameObject.tag == "Death")
+        if (collider.gameObject.tag == "Breakable_Floor")
+        {
+            isGrounded = true;
+            canDash = true;
+        }
+
+        if (collider.gameObject.tag == "Death")
         {
             isDead = true;
         }
@@ -229,6 +243,10 @@ public class PlayerMovementScript : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collider)
     {
         if (collider.gameObject.tag == "Ground")
+        {
+            isGrounded = false;
+        }
+        if (collider.gameObject.tag == "Breakable_Floor")
         {
             isGrounded = false;
         }

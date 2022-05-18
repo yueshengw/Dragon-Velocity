@@ -28,6 +28,8 @@ public class PlayerAbilitiesScript : MonoBehaviour
     private bool canDash = true;
     private TrailRenderer tr;
 
+    public PlayerMovementScript player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,7 @@ public class PlayerAbilitiesScript : MonoBehaviour
         dashTime = startDashTime;
         tr = GetComponent<TrailRenderer>();
         anim = GetComponent<Animator>();
+        player = GetComponent<PlayerMovementScript>();
     }
 
     // Update is called once per frame
@@ -114,7 +117,7 @@ public class PlayerAbilitiesScript : MonoBehaviour
             anim.SetBool("IsStomping", false);
         }
     }
- 
+
     void GlideMove()
     {
         if ((Input.GetKey(KeyCode.K) || Input.GetKey(KeyCode.V)) && GetComponent<PlayerMovementScript>().isGrounded == false)
@@ -130,15 +133,21 @@ public class PlayerAbilitiesScript : MonoBehaviour
 
         if ((Input.GetKey(KeyCode.K) || Input.GetKey(KeyCode.V)))
         {
-            //DashGlow.SetActive(true);
             if (!glideAudio.isPlaying)
             {
                 glideAudio.Play();
+                anim.SetBool("IsGliding", true);
+            }
+            if (player.isGrounded == true)
+            {
+                glideAudio.Stop();
+                anim.SetBool("IsGliding", false);
             }
         }
         else
         {
             glideAudio.Stop();
+            anim.SetBool("IsGliding", false);
         }
     }
 
