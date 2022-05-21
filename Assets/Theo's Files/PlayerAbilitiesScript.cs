@@ -153,15 +153,21 @@ public class PlayerAbilitiesScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collider)
     {
-        if (collider.gameObject.tag == "Breakable" && isDashing == true)
+        if (collider.gameObject.tag == "Breakable_Wall" && isDashing == true)
         {
             Destroy(collider.gameObject);
         }
-        if (collider.gameObject.tag == "Breakable" && isStomping == true)
+        if (collider.gameObject.tag == "Breakable_Floor" && isStomping == true)
         {
             Destroy(collider.gameObject);
         }
+
         if(collider.gameObject.tag == "Ground")
+        {
+            canDash = true;
+            canStomp = true;
+        }
+        if (collider.gameObject.tag == "Breakable_Floor")
         {
             canDash = true;
             canStomp = true;
@@ -177,7 +183,13 @@ public class PlayerAbilitiesScript : MonoBehaviour
         {
             Destroy(collider.gameObject);
         }
+
         if (collider.gameObject.tag == "Ground")
+        {
+            canDash = true;
+            canStomp = true;
+        }
+        if (collider.gameObject.tag == "Breakable_Floor")
         {
             canDash = true;
             canStomp = true;
