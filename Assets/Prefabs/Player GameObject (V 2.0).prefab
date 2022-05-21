@@ -110,7 +110,6 @@ GameObject:
   - component: {fileID: 403426123742269154}
   - component: {fileID: 2153737585904491943}
   - component: {fileID: 1925758918}
-  - component: {fileID: 820937602}
   m_Layer: 0
   m_Name: Player GameObject (V 2.0)
   m_TagString: Player
@@ -217,6 +216,7 @@ MonoBehaviour:
   deathTime: 0
   respawn: 0
   inputDisabled: 0
+  tr: {fileID: 0}
 --- !u!114 &2153737585904491950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,6 +238,8 @@ MonoBehaviour:
   glideAudio: {fileID: 403426123742269154}
   dashingVelocity: 35
   dashingTime: 0.27
+  tr: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &3423009654992636082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1019,23 +1021,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &820937602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2153737585904491942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c58afe2030b4e43b6b47fa2067ded00d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rayCastOrigin: {fileID: 0}
-  playerFeet: {fileID: 0}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!1 &2153737586353096015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,7 +1075,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 40
+    OrthographicSize: 23
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
