@@ -267,18 +267,16 @@ public class PlayerMovementScript : MonoBehaviour
         {
             isGrounded = false;
         }
-        
-        
-        
-        
-            jumpForce = 65;
-    }
-        }
 
         if (collider.gameObject.tag == "Slippery")
         {
             StartCoroutine(CoroutineSlip());
         }
+        if (collider.gameObject.tag == "Breakable_Floor")
+        {
+            isGrounded = false;
+        }
+
     }
 
     IEnumerator CoroutineSlip()
@@ -287,11 +285,5 @@ public class PlayerMovementScript : MonoBehaviour
         speed = 35;
         jumpForce = 30;
         tr.emitting = false;
-    }
-        }
-        if (collider.gameObject.tag == "Breakable_Floor")
-        {
-            isGrounded = false;
-        }
     }
 }
