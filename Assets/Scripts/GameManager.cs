@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {   
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public GameObject playerPrefab;
+
+    public TextMeshProUGUI gameText;
 
     public GameObject Gate;
     private bool createdGate;
@@ -23,6 +26,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        gameText = GameObject.Find("Game Text").GetComponent<TextMeshProUGUI>();
+        gameText.text = "";
     }
 
     void Update()
@@ -70,6 +75,15 @@ public class GameManager : MonoBehaviour
                 n.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                 n.tag = "Breakable";
             }
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(collider.gameObject.tag == "Dragon Egg")
+        {
+            Debug.Log("Is Triggered");
+            gameText.text = "Press F to Destroy or E to Save Dragon Egg";
         }
     }
 }

@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 2153737585904491920}
   - component: {fileID: 2153737585904491951}
   - component: {fileID: 2153737585904491950}
+  - component: {fileID: 3423009654992636082}
   - component: {fileID: 2153737585904491949}
   - component: {fileID: 2153737585904491948}
   - component: {fileID: 166625131419869273}
@@ -237,6 +238,20 @@ MonoBehaviour:
   glideAudio: {fileID: 403426123742269154}
   dashingVelocity: 35
   dashingTime: 0.27
+--- !u!114 &3423009654992636082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2153737585904491942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b51fd729252c1d46af6129cc3c476c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameText: {fileID: 0}
+  canvasObject: {fileID: 0}
 --- !u!61 &2153737585904491949
 BoxCollider2D:
   m_ObjectHideFlags: 0

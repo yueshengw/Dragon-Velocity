@@ -28,6 +28,8 @@ public class PlayerAbilitiesScript : MonoBehaviour
     private bool canDash = true;
     public TrailRenderer tr;
 
+    public PlayerMovementScript player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,7 @@ public class PlayerAbilitiesScript : MonoBehaviour
         dashTime = startDashTime;
         tr = GetComponent<TrailRenderer>();
         anim = GetComponent<Animator>();
+        player = GetComponent<PlayerMovementScript>();
     }
 
     // Update is called once per frame
@@ -114,7 +117,7 @@ public class PlayerAbilitiesScript : MonoBehaviour
             anim.SetBool("IsStomping", false);
         }
     }
- 
+
     void GlideMove()
     {
         if ((Input.GetKey(KeyCode.K) || Input.GetKey(KeyCode.V)) && GetComponent<PlayerMovementScript>().isGrounded == false)
@@ -130,29 +133,41 @@ public class PlayerAbilitiesScript : MonoBehaviour
 
         if ((Input.GetKey(KeyCode.K) || Input.GetKey(KeyCode.V)))
         {
-            //DashGlow.SetActive(true);
             if (!glideAudio.isPlaying)
             {
                 glideAudio.Play();
+                anim.SetBool("IsGliding", true);
+            }
+            if (player.isGrounded == true)
+            {
+                glideAudio.Stop();
+                anim.SetBool("IsGliding", false);
             }
         }
         else
         {
             glideAudio.Stop();
+            anim.SetBool("IsGliding", false);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collider)
     {
-        if (collider.gameObject.tag == "Breakable" && isDashing == true)
+        if (collider.gameObject.tag == "Breakable_Wall" && isDashing == true)
         {
             Destroy(collider.gameObject);
         }
-        if (collider.gameObject.tag == "Breakable" && isStomping == true)
+        if (collider.gameObject.tag == "Breakable_Floor" && isStomping == true)
         {
             Destroy(collider.gameObject);
         }
+
         if(collider.gameObject.tag == "Ground")
+        {
+            canDash = true;
+            canStomp = true;
+        }
+        if (collider.gameObject.tag == "Breakable_Floor")
         {
             canDash = true;
             canStomp = true;
@@ -160,15 +175,21 @@ public class PlayerAbilitiesScript : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collider)
     {
-        if (collider.gameObject.tag == "Breakable" && isDashing == true)
+        if (collider.gameObject.tag == "Breakable_Wall" && isDashing == true)
         {
             Destroy(collider.gameObject);
         }
-        if (collider.gameObject.tag == "Breakable" && isStomping == true)
+        if (collider.gameObject.tag == "Breakable_Floor" && isStomping == true)
         {
             Destroy(collider.gameObject);
         }
+
         if (collider.gameObject.tag == "Ground")
+        {
+            canDash = true;
+            canStomp = true;
+        }
+        if (collider.gameObject.tag == "Breakable_Floor")
         {
             canDash = true;
             canStomp = true;

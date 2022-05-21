@@ -8,11 +8,12 @@ TagManager:
   - Ground
   - Wall
   - Checkpoint
-  - Breakable
   - Trigger1
   - Outskirts Door
   - Forest Door
-  - Slippery
+  - Breakable_Wall
+  - Breakable_Floor
+  - Dragon Egg
   layers:
   - Default
   - TransparentFX

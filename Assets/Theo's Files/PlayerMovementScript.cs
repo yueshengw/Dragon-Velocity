@@ -144,6 +144,7 @@ public class PlayerMovementScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Time.timeScale = 1f;
         }
 
         if (isDissolving == true || isDead == true)
@@ -197,16 +198,23 @@ public class PlayerMovementScript : MonoBehaviour
             canDash = true;
             landAudio.Play();
         }
+        if (collider.gameObject.tag == "Breakable_Floor")
+        {
+            isGrounded = true;
+            canDash = true;
+            landAudio.Play();
+        }
 
         //All Scene Transitions
         if (collider.gameObject.tag == "Outskirts Door")
         {
-            SceneManager.LoadScene("TheosScene");
+            SceneManager.LoadScene("The Outskirts");
         }
 
         if (collider.gameObject.tag == "Forest Door")
         {
             //play dragon mother cutscene
+            SceneManager.LoadScene("Forest");
         }
 
         if (collider.gameObject.tag == "Slippery")
@@ -224,11 +232,19 @@ public class PlayerMovementScript : MonoBehaviour
             playerHealth -= 1;
         }
         if (collider.gameObject.tag == "Ground" || collider.gameObject.tag == "Slippery")
+
+        if (collider.gameObject.tag == "Ground")
         {
             isGrounded = true;
             canDash = true;
         }
-        if(collider.gameObject.tag == "Death")
+        if (collider.gameObject.tag == "Breakable_Floor")
+        {
+            isGrounded = true;
+            canDash = true;
+        }
+
+        if (collider.gameObject.tag == "Death")
         {
             isDead = true;
         }
@@ -251,6 +267,13 @@ public class PlayerMovementScript : MonoBehaviour
         {
             isGrounded = false;
         }
+        
+        
+        
+        
+            jumpForce = 65;
+    }
+        }
 
         if (collider.gameObject.tag == "Slippery")
         {
@@ -264,5 +287,11 @@ public class PlayerMovementScript : MonoBehaviour
         speed = 35;
         jumpForce = 30;
         tr.emitting = false;
+    }
+        }
+        if (collider.gameObject.tag == "Breakable_Floor")
+        {
+            isGrounded = false;
+        }
     }
 }

@@ -9,9 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/DEMO.unity
+    path: Assets/Scenes/MainMenu.unity
+    guid: 8f32ce5dbbea24473b916129553e44eb
+  - enabled: 1
+    path: Assets/Scenes/Tutorial (Castle).unity
     guid: 9c92a9188cd2245f790719bbb41a9ba4
   - enabled: 1
-    path: Assets/Scenes/TheosScene.unity
+    path: Assets/Scenes/The Outskirts.unity
     guid: d9e3acf0e7a64a64299ce52238b5de7c
+  - enabled: 1
+    path: Assets/Scenes/Forest.unity
+    guid: 4f280b9c0054ae74f9d53646e3bfc883
   m_configObjects: {}
