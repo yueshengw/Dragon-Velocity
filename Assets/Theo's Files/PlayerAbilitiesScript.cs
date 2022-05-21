@@ -98,7 +98,7 @@ public class PlayerAbilitiesScript : MonoBehaviour
     }
     void StompMove()
     {
-        if (Input.GetKeyDown(KeyCode.S) && canStomp == true)
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) && canStomp == true)
         {
             tr.emitting = true;
             groundpoundAudio.Play();
