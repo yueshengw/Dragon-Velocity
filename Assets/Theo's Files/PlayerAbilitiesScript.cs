@@ -26,7 +26,7 @@ public class PlayerAbilitiesScript : MonoBehaviour
     private Vector2 dashingDirection;
     private bool isDashing;
     private bool canDash = true;
-    private TrailRenderer tr;
+    public TrailRenderer tr;
 
     public PlayerMovementScript player;
 

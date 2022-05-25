@@ -26,8 +26,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        gameText = GameObject.Find("Game Text").GetComponent<TextMeshProUGUI>();
-        gameText.text = "";
+        //gameText = GameObject.Find("Game Text").GetComponent<TextMeshProUGUI>();
+        //gameText.text = "";
     }
 
     void Update()
