@@ -44,6 +44,11 @@ public class PlayerReputationSystem : MonoBehaviour
                 canvasObject.GetComponent<ChoicePanelManager>().eggInteracted = true;
             }
         }
+
+        if (collision.gameObject.tag == "Trigger1")
+        {
+            gameText.text = "End of Build. Thanks for playing!";
+        }
     }
     public void OnTriggerStay2D(Collider2D collision)
     {
