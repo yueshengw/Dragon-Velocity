@@ -14,6 +14,7 @@ public class PlayerMovementScript : MonoBehaviour
     public int playerHealth;
 
     private Rigidbody2D rb2D;
+    private Animator anim;
     //[SerializeField] private Transform groundCheck;
     //[SerializeField] private float groundCheckRadius;
     [SerializeField] private float speed;
@@ -24,6 +25,7 @@ public class PlayerMovementScript : MonoBehaviour
     [SerializeField] private AudioSource landAudio;
 
     public bool isDashing;
+    public bool isMoving;
     public bool canDash;
     public GameObject GameManager;
     public bool newCheckpoint;
@@ -38,12 +40,14 @@ public class PlayerMovementScript : MonoBehaviour
     public bool respawn;
 
     public bool inputDisabled;
+    public TrailRenderer tr;
 
     void Awake()
     {
         GameManager = GameObject.Find("GameManager");
         rb2D = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         deathTime = deathTimeDefault;
+        anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
     }
     // Start is called before the first frame update
     void Start()
@@ -51,6 +55,7 @@ public class PlayerMovementScript : MonoBehaviour
         isDead = false;
         GameManager = GameObject.Find("GameManager");
         rb2D = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+        anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -58,44 +63,70 @@ public class PlayerMovementScript : MonoBehaviour
     {
         rb2D = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         GameManager = GameObject.Find("GameManager");
+        anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
 
         inputX = Input.GetAxisRaw("Horizontal");
         rb2D.velocity = new Vector2(inputX * speed, rb2D.velocity.y);
 
-        if(Input.GetKeyDown(KeyCode.W) && isGrounded == true)
+        if (Input.GetKeyDown(KeyCode.W) && isGrounded == true)
         {
             rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
             jumpingAudio.Play();
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
         {
             rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
             jumpingAudio.Play();
         }
 
-        if(Input.GetKeyDown(KeyCode.UpArrow) && isGrounded == true)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded == true)
         {
             rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
             jumpingAudio.Play();
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             flip = true;
+
             if (flip == true)
             {
                 GetComponent<SpriteRenderer>().flipX = true;
             }
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             flip = false;
+
             if (flip == false)
             {
                 GetComponent<SpriteRenderer>().flipX = false;
             }
+        }
+
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
+
+        if (isMoving == true)
+        {
+            anim.SetBool("IsRunning", true);
+        }
+        else if (isMoving == false)
+        {
+            anim.SetBool("IsRunning", false);
+        }
+
+        if (isGrounded == false)
+        {
+            anim.SetBool("IsRunning", false);
         }
 
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) && isGrounded == true)
@@ -113,6 +144,7 @@ public class PlayerMovementScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Time.timeScale = 1f;
         }
 
         if (isDissolving == true || isDead == true)
@@ -160,7 +192,13 @@ public class PlayerMovementScript : MonoBehaviour
             inputDisabled = true;
         }
 
-        if (collider.gameObject.tag == "Ground")
+        if (collider.gameObject.tag == "Ground" || collider.gameObject.tag == "Slippery")
+        {
+            isGrounded = true;
+            canDash = true;
+            landAudio.Play();
+        }
+        if (collider.gameObject.tag == "Breakable_Floor")
         {
             isGrounded = true;
             canDash = true;
@@ -170,11 +208,20 @@ public class PlayerMovementScript : MonoBehaviour
         //All Scene Transitions
         if (collider.gameObject.tag == "Outskirts Door")
         {
-            SceneManager.LoadScene("TheosScene");
+            SceneManager.LoadScene("The Outskirts");
         }
+
         if (collider.gameObject.tag == "Forest Door")
         {
             //play dragon mother cutscene
+            SceneManager.LoadScene("Forest");
+        }
+
+        if (collider.gameObject.tag == "Slippery")
+        {
+            speed = 60;
+            jumpForce = 65;
+            tr.emitting = true;
         }
     }
 
@@ -184,22 +231,59 @@ public class PlayerMovementScript : MonoBehaviour
         {
             playerHealth -= 1;
         }
+        if (collider.gameObject.tag == "Ground" || collider.gameObject.tag == "Slippery")
+
         if (collider.gameObject.tag == "Ground")
         {
             isGrounded = true;
             canDash = true;
         }
-        if(collider.gameObject.tag == "Death")
+        if (collider.gameObject.tag == "Breakable_Floor")
+        {
+            isGrounded = true;
+            canDash = true;
+        }
+
+        if (collider.gameObject.tag == "Death")
         {
             isDead = true;
         }
+        if (collider.gameObject.tag == "Slippery")
+        {
+            //gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * 10, ForceMode2D.Impulse);
+        }
+        if (collider.gameObject.tag == "Slippery")
+        {
+            speed = 60;
+            jumpForce = 65;
+            tr.emitting = true;
+        }
+
     }
 
     private void OnCollisionExit2D(Collision2D collider)
     {
-        if (collider.gameObject.tag == "Ground")
+        if (collider.gameObject.tag == "Ground" || collider.gameObject.tag == "Slippery")
         {
             isGrounded = false;
         }
+
+        if (collider.gameObject.tag == "Slippery")
+        {
+            StartCoroutine(CoroutineSlip());
+        }
+        if (collider.gameObject.tag == "Breakable_Floor")
+        {
+            isGrounded = false;
+        }
+
+    }
+
+    IEnumerator CoroutineSlip()
+    {
+        yield return new WaitForSeconds(1);
+        speed = 35;
+        jumpForce = 30;
+        tr.emitting = false;
     }
 }

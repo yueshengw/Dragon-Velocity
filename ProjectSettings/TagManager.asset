@@ -8,10 +8,15 @@ TagManager:
   - Ground
   - Wall
   - Checkpoint
-  - Breakable
   - Trigger1
   - Outskirts Door
   - Forest Door
+  - Breakable_Wall
+  - Breakable_Floor
+  - Dragon Egg
+  - Breakable
+  - Slippery
+  - Barrier
   layers:
   - Default
   - TransparentFX
@@ -22,7 +27,7 @@ TagManager:
   - Post Processing
   - 
   - 
-  - 
+  - Slope Collider
   - 
   - 
   - 

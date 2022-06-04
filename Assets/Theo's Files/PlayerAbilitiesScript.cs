@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAbilitiesScript : MonoBehaviour
 {
     private Rigidbody2D rb2D;
+    private Animator anim;
     private float dashTime;
     public float startDashTime;
     public float movementInput;
@@ -25,7 +26,9 @@ public class PlayerAbilitiesScript : MonoBehaviour
     private Vector2 dashingDirection;
     private bool isDashing;
     private bool canDash = true;
-    private TrailRenderer tr;
+    public TrailRenderer tr;
+
+    public PlayerMovementScript player;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +36,8 @@ public class PlayerAbilitiesScript : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         dashTime = startDashTime;
         tr = GetComponent<TrailRenderer>();
+        anim = GetComponent<Animator>();
+        player = GetComponent<PlayerMovementScript>();
     }
 
     // Update is called once per frame
@@ -71,8 +76,14 @@ public class PlayerAbilitiesScript : MonoBehaviour
 
         if (isDashing)
         {
+            anim.SetBool("IsDashing", true);
+
             rb2D.velocity = dashingDirection.normalized * dashingVelocity;
             return;
+        }
+        else
+        {
+            anim.SetBool("IsDashing", false);
         }
     }
     void BrakeMove()
@@ -87,7 +98,7 @@ public class PlayerAbilitiesScript : MonoBehaviour
     }
     void StompMove()
     {
-        if (Input.GetKeyDown(KeyCode.S) && canStomp == true)
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) && canStomp == true)
         {
             tr.emitting = true;
             groundpoundAudio.Play();
@@ -96,8 +107,17 @@ public class PlayerAbilitiesScript : MonoBehaviour
             canStomp = false;
             StartCoroutine(StopDashing());
         }
+
+        if (isStomping)
+        {
+            anim.SetBool("IsStomping", true);
+        }
+        else
+        {
+            anim.SetBool("IsStomping", false);
+        }
     }
- 
+
     void GlideMove()
     {
         if ((Input.GetKey(KeyCode.K) || Input.GetKey(KeyCode.V)) && GetComponent<PlayerMovementScript>().isGrounded == false)
@@ -113,29 +133,41 @@ public class PlayerAbilitiesScript : MonoBehaviour
 
         if ((Input.GetKey(KeyCode.K) || Input.GetKey(KeyCode.V)))
         {
-            //DashGlow.SetActive(true);
             if (!glideAudio.isPlaying)
             {
                 glideAudio.Play();
+                anim.SetBool("IsGliding", true);
+            }
+            if (player.isGrounded == true)
+            {
+                glideAudio.Stop();
+                anim.SetBool("IsGliding", false);
             }
         }
         else
         {
             glideAudio.Stop();
+            anim.SetBool("IsGliding", false);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collider)
     {
-        if (collider.gameObject.tag == "Breakable" && isDashing == true)
+        if (collider.gameObject.tag == "Breakable_Wall" && isDashing == true)
         {
             Destroy(collider.gameObject);
         }
-        if (collider.gameObject.tag == "Breakable" && isStomping == true)
+        if (collider.gameObject.tag == "Breakable_Floor" && isStomping == true)
         {
             Destroy(collider.gameObject);
         }
+
         if(collider.gameObject.tag == "Ground")
+        {
+            canDash = true;
+            canStomp = true;
+        }
+        if (collider.gameObject.tag == "Breakable_Floor")
         {
             canDash = true;
             canStomp = true;
@@ -143,15 +175,21 @@ public class PlayerAbilitiesScript : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collider)
     {
-        if (collider.gameObject.tag == "Breakable" && isDashing == true)
+        if (collider.gameObject.tag == "Breakable_Wall" && isDashing == true)
         {
             Destroy(collider.gameObject);
         }
-        if (collider.gameObject.tag == "Breakable" && isStomping == true)
+        if (collider.gameObject.tag == "Breakable_Floor" && isStomping == true)
         {
             Destroy(collider.gameObject);
         }
+
         if (collider.gameObject.tag == "Ground")
+        {
+            canDash = true;
+            canStomp = true;
+        }
+        if (collider.gameObject.tag == "Breakable_Floor")
         {
             canDash = true;
             canStomp = true;

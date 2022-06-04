@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 2153737585904491920}
   - component: {fileID: 2153737585904491951}
   - component: {fileID: 2153737585904491950}
+  - component: {fileID: 3423009654992636082}
   - component: {fileID: 2153737585904491949}
   - component: {fileID: 2153737585904491948}
   - component: {fileID: 166625131419869273}
@@ -108,6 +109,7 @@ GameObject:
   - component: {fileID: 2153737585904491944}
   - component: {fileID: 403426123742269154}
   - component: {fileID: 2153737585904491943}
+  - component: {fileID: 1925758918}
   m_Layer: 0
   m_Name: Player GameObject (V 2.0)
   m_TagString: Player
@@ -123,7 +125,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2153737585904491942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.2, y: 4.2, z: 0}
+  m_LocalPosition: {x: 343, y: -18, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 2153737586353096112}
@@ -170,7 +172,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 77288706b6188fb41b60ac270d65e1eb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7f26458faa058cf4a86adc3b01a57982, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -203,6 +205,7 @@ MonoBehaviour:
   jumpingAudio: {fileID: 2153737585904491947}
   landAudio: {fileID: 2153737585904491946}
   isDashing: 0
+  isMoving: 0
   canDash: 0
   GameManager: {fileID: 0}
   newCheckpoint: 0
@@ -213,6 +216,7 @@ MonoBehaviour:
   deathTime: 0
   respawn: 0
   inputDisabled: 0
+  tr: {fileID: 0}
 --- !u!114 &2153737585904491950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,7 +237,22 @@ MonoBehaviour:
   groundpoundAudio: {fileID: 2153737585904491944}
   glideAudio: {fileID: 403426123742269154}
   dashingVelocity: 35
-  dashingTime: 0.5
+  dashingTime: 0.27
+  player: {fileID: 0}
+--- !u!114 &3423009654992636082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2153737585904491942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b51fd729252c1d46af6129cc3c476c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameText: {fileID: 0}
+  canvasObject: {fileID: 0}
 --- !u!61 &2153737585904491949
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -247,10 +266,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0064044744, y: -0.045461178}
+  m_Offset: {x: 0.008235566, y: -0.07166757}
   m_SpriteTilingProperty:
-    border: {x: 0.41, y: 0.04, z: 0.19, w: 0.04}
-    pivot: {x: 0.63623977, y: 0.51513773}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
     newSize: {x: 0.01, y: 0.01}
     adaptiveTilingThreshold: 0.5
@@ -258,7 +277,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.20009783, y: 0.85935104}
+  m_Size: {x: 0.18603732, y: 0.8387823}
   m_EdgeRadius: 0
 --- !u!50 &2153737585904491948
 Rigidbody2D:
@@ -982,6 +1001,25 @@ TrailRenderer:
   m_MinVertexDistance: 0
   m_Autodestruct: 0
   m_Emitting: 0
+--- !u!95 &1925758918
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2153737585904491942}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 619a8dc51b54042a4a8ccf1baac93c34, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2153737586353096015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1036,7 +1074,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 20
+    OrthographicSize: 23
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
