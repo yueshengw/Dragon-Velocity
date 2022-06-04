@@ -8,7 +8,7 @@ public class FollowThePath : MonoBehaviour {
 
     // Walk speed that can be set in Inspector
     [SerializeField]
-    private float moveSpeed = 2f;
+    public float moveSpeed;
 
     // Index of current waypoint from which Enemy walks
     // to the next one
@@ -36,7 +36,7 @@ public class FollowThePath : MonoBehaviour {
         //if (waypointIndex <= waypoints.Length - 1)
         if (waypointIndex <= waypoints.Length - 1)
         {
-            Debug.Log(waypointIndex);
+            //sDebug.Log(waypointIndex);
             // Move Enemy from current waypoint to the next one
             // using MoveTowards method
             transform.position = Vector2.MoveTowards(transform.position,
@@ -49,7 +49,7 @@ public class FollowThePath : MonoBehaviour {
             if (transform.position == waypoints[waypointIndex].transform.position)
             {
                 waypointIndex += 1;
-                Debug.Log(waypointIndex);
+                //Debug.Log(waypointIndex);
             }
         }
     }
