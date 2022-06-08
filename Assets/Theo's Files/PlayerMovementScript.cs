@@ -68,19 +68,7 @@ public class PlayerMovementScript : MonoBehaviour
         inputX = Input.GetAxisRaw("Horizontal");
         rb2D.velocity = new Vector2(inputX * speed, rb2D.velocity.y);
 
-        if (Input.GetKeyDown(KeyCode.W) && isGrounded == true)
-        {
-            rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
-            jumpingAudio.Play();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
-        {
-            rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
-            jumpingAudio.Play();
-        }
-
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded == true)
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) && isGrounded == true)
         {
             rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
             jumpingAudio.Play();
@@ -192,16 +180,11 @@ public class PlayerMovementScript : MonoBehaviour
             inputDisabled = true;
         }
 
-        if (collider.gameObject.tag == "Ground" || collider.gameObject.tag == "Slippery")
+        if (collider.gameObject.tag == "Ground" || collider.gameObject.tag == "Slippery" || collider.gameObject.tag == "Breakable_Floor")
         {
             isGrounded = true;
             canDash = true;
-            landAudio.Play();
-        }
-        if (collider.gameObject.tag == "Breakable_Floor")
-        {
-            isGrounded = true;
-            canDash = true;
+            anim.SetBool("IsJumping", false);
             landAudio.Play();
         }
 
@@ -214,7 +197,7 @@ public class PlayerMovementScript : MonoBehaviour
         if (collider.gameObject.tag == "Forest Door")
         {
             //play dragon mother cutscene
-            SceneManager.LoadScene("Forest");
+            SceneManager.LoadScene("MotherDragonMeeting");
         }
 
         if (collider.gameObject.tag == "Slippery")
@@ -231,7 +214,6 @@ public class PlayerMovementScript : MonoBehaviour
         {
             playerHealth -= 1;
         }
-        if (collider.gameObject.tag == "Ground" || collider.gameObject.tag == "Slippery")
 
         if (collider.gameObject.tag == "Ground")
         {
@@ -263,20 +245,16 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collider)
     {
-        if (collider.gameObject.tag == "Ground" || collider.gameObject.tag == "Slippery")
+        if (collider.gameObject.tag == "Ground" || collider.gameObject.tag == "Slippery" || collider.gameObject.tag == "Breakable_Floor")
         {
             isGrounded = false;
+            anim.SetBool("IsJumping", true);
         }
 
         if (collider.gameObject.tag == "Slippery")
         {
             StartCoroutine(CoroutineSlip());
         }
-        if (collider.gameObject.tag == "Breakable_Floor")
-        {
-            isGrounded = false;
-        }
-
     }
 
     IEnumerator CoroutineSlip()

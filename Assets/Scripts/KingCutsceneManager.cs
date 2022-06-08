@@ -6,6 +6,7 @@ public class KingCutsceneManager : MonoBehaviour
 {
     public GameObject Player, TextObject, King;
     public GameObject sceneFader;
+    public GameObject sceneFaderExit;
     public float rightForce, textObjectTimer;
 
     // Start is called before the first frame update
@@ -30,9 +31,7 @@ public class KingCutsceneManager : MonoBehaviour
         }
         if (TextObject.GetComponent<CutsceneTextScript>().textCounter >= 11)
         {
-            sceneFader.GetComponent<SceneFadeScript>().running2 = true;
-            sceneFader.SetActive(true);
-            sceneFader.GetComponent<SceneFadeScript>().isTransitioning = true;
+            sceneFaderExit.GetComponent<FadeToBlack>().start = true;
         }
     }
 

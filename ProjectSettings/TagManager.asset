@@ -17,6 +17,7 @@ TagManager:
   - Breakable
   - Slippery
   - Barrier
+  - Cutscene Dragon Egg
   layers:
   - Default
   - TransparentFX

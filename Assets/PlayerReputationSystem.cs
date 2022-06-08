@@ -10,11 +10,17 @@ public class PlayerReputationSystem : MonoBehaviour
     public static int dragonReputation;
     public static int kingReputation;
 
+    //public int startingDragonReputation;
+    //public int startingKingReputation;
+
     public GameObject canvasObject;
 
     // Start is called before the first frame update
     void Start()
     {
+        //dragonReputation = startingDragonReputation;
+       //kingReputation = startingKingReputation;
+
         gameText = GameObject.Find("Game Text").GetComponent<TextMeshProUGUI>();
         gameText.text = "";
 
@@ -45,6 +51,14 @@ public class PlayerReputationSystem : MonoBehaviour
             }
         }
 
+        if (collision.gameObject.tag == "Cutscene Dragon Egg")
+        {
+            if (Input.GetKey(KeyCode.E))
+            {
+                canvasObject.GetComponent<ChoicePanelManager>().eggInteracted = true;
+            }
+        }
+
         if (collision.gameObject.tag == "Trigger1")
         {
             gameText.text = "End of Build. Thanks for playing!";
@@ -55,6 +69,14 @@ public class PlayerReputationSystem : MonoBehaviour
         if (collision.gameObject.tag == "Dragon Egg")
         {
             gameText.text = "Press E to Interact";
+            if (Input.GetKey(KeyCode.E))
+            {
+                canvasObject.GetComponent<ChoicePanelManager>().eggInteracted = true;
+            }
+        }
+
+        if (collision.gameObject.tag == "Cutscene Dragon Egg")
+        {
             if (Input.GetKey(KeyCode.E))
             {
                 canvasObject.GetComponent<ChoicePanelManager>().eggInteracted = true;
