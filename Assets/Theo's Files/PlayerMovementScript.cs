@@ -41,6 +41,8 @@ public class PlayerMovementScript : MonoBehaviour
 
     public bool inputDisabled;
     public TrailRenderer tr;
+    public bool debug;
+    public TrailRenderer debugTrail;
 
     void Awake()
     {
@@ -49,7 +51,7 @@ public class PlayerMovementScript : MonoBehaviour
         deathTime = deathTimeDefault;
         anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         isDead = false;
@@ -58,7 +60,6 @@ public class PlayerMovementScript : MonoBehaviour
         anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         rb2D = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
@@ -164,6 +165,10 @@ public class PlayerMovementScript : MonoBehaviour
             deathTime = deathTimeDefault;
             inputDisabled = false;
         }
+        if (debug == true)
+        {
+            //debugTrail.emitting = true;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collider)
@@ -214,6 +219,9 @@ public class PlayerMovementScript : MonoBehaviour
         {
             playerHealth -= 1;
         }
+        if (collider.gameObject.tag == "Ground" || collider.gameObject.tag == "Slippery")
+        {
+        }
 
         if (collider.gameObject.tag == "Ground")
         {
@@ -238,7 +246,7 @@ public class PlayerMovementScript : MonoBehaviour
         {
             speed = 60;
             jumpForce = 65;
-            tr.emitting = true;
+            //tr.emitting = true;
         }
 
     }
@@ -252,6 +260,50 @@ public class PlayerMovementScript : MonoBehaviour
         }
 
         if (collider.gameObject.tag == "Slippery")
+        {
+            StartCoroutine(CoroutineSlip());
+        }
+        if (collider.gameObject.tag == "Breakable_Floor")
+        {
+            isGrounded = false;
+        }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Fly")
+        {
+            speed = 100;
+            //jumpForce = 30;
+        }
+        if (collision.gameObject.tag == "Death")
+        {
+            isDead = true;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Fly")
+        {
+            speed = 35;
+            jumpForce = 30;
+        }
+    }
+    IEnumerator CoroutineSlip()
+    {
+        yield return new WaitForSeconds(1.5f);
+        speed = 35;
+        jumpForce = 30;
+        tr.emitting = false;
+    }
+}
         {
             StartCoroutine(CoroutineSlip());
         }

@@ -90,4 +90,5 @@ public class PlayerReputationSystem : MonoBehaviour
             gameText.text = "";
         }
     }
+
 }
