@@ -17,6 +17,8 @@ TagManager:
   - Breakable
   - Slippery
   - Fly
+  - Downward
+  - Upper
   layers:
   - Default
   - TransparentFX

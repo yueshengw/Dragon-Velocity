@@ -289,6 +289,10 @@ public class PlayerMovementScript : MonoBehaviour
             speed = 100;
             //jumpForce = 30;
         }
+        if (collision.gameObject.tag == "Death")
+        {
+            isDead = true;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
