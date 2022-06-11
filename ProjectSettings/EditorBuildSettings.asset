@@ -5,10 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 8f32ce5dbbea24473b916129553e44eb
   - enabled: 0
@@ -17,7 +14,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/The Outskirts.unity
     guid: d9e3acf0e7a64a64299ce52238b5de7c
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Scenes/MotherDragonMeeting.unity
+    guid: eb79e68454cf3415e9473809ab0bbb5f
+  - enabled: 1
     path: Assets/Scenes/Forest.unity
     guid: 4f280b9c0054ae74f9d53646e3bfc883
   - enabled: 1
