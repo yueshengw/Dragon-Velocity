@@ -185,7 +185,7 @@ public class PlayerMovementScript : MonoBehaviour
             inputDisabled = true;
         }
 
-        if (collider.gameObject.tag == "Ground" || collider.gameObject.tag == "Slippery" || collider.gameObject.tag == "Breakable_Floor")
+        if ((collider.gameObject.tag == "Ground" || collider.gameObject.tag == "Slippery" || collider.gameObject.tag == "Breakable_Floor"))
         {
             isGrounded = true;
             canDash = true;
@@ -219,19 +219,12 @@ public class PlayerMovementScript : MonoBehaviour
         {
             playerHealth -= 1;
         }
-        if (collider.gameObject.tag == "Ground" || collider.gameObject.tag == "Slippery")
-        {
-        }
 
-        if (collider.gameObject.tag == "Ground")
+        if ((collider.gameObject.tag == "Ground" || collider.gameObject.tag == "Breakable_Floor" || collider.gameObject.tag == "Slippery"))
         {
             isGrounded = true;
             canDash = true;
-        }
-        if (collider.gameObject.tag == "Breakable_Floor")
-        {
-            isGrounded = true;
-            canDash = true;
+            anim.SetBool("IsJumping", false);
         }
 
         if (collider.gameObject.tag == "Death")
