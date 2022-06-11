@@ -65,7 +65,7 @@ public class FollowThePath : MonoBehaviour {
             // If Enemy reaches position of waypoint he walked towards
             // then waypointIndex is increased by 1
             // and Enemy starts to walk to the next waypoint
-            Debug.Log(waypoints[waypointIndex].transform.position);
+            //Debug.Log(waypoints[waypointIndex].transform.position);
             if (transform.position == waypoints[waypointIndex].transform.position)
             {
                 waypointIndex += 1;

@@ -40,7 +40,7 @@ public class FairyMovement : MonoBehaviour
             if (fairyMovement.GetComponent<FollowThePath>().moveSpeed < maxSpeed)
             {
                 fairyMovement.GetComponent<FollowThePath>().moveSpeed += increment * timer3;
-                Debug.Log(fairyMovement.GetComponent<FollowThePath>().moveSpeed);
+                //Debug.Log(fairyMovement.GetComponent<FollowThePath>().moveSpeed);
             }
             
         }

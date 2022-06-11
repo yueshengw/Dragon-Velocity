@@ -12,12 +12,16 @@ public class FallingCrusher : MonoBehaviour
     public float fallGravity = 30f;
     public float upGravity = -4f;
 
+    private GameObject player;
+    public bool isTriggered;
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindWithTag("Player");
+        //Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>(), false);
+        GetComponent<Rigidbody2D>().gravityScale = upGravity;
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -35,26 +39,29 @@ public class FallingCrusher : MonoBehaviour
             GetComponent<Rigidbody2D>().gravityScale = upGravity;
             touchGround = false;
         }
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player" & touchUpper)
+        if (isTriggered & touchUpper)
         {
+            gameObject.tag = "Death";
             GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             GetComponent<Rigidbody2D>().gravityScale = fallGravity;
+            //Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
         }
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
             touchGround = true;
+            gameObject.tag = "Untagged";
+            gameObject.layer = 13;
         }
         if (collision.gameObject.tag == "Upper")
         {
             touchUpper = true;
             GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            gameObject.layer = 10;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)

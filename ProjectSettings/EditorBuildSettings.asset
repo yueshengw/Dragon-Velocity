@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 8f32ce5dbbea24473b916129553e44eb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Tutorial (Castle).unity
     guid: 9c92a9188cd2245f790719bbb41a9ba4
   - enabled: 1
