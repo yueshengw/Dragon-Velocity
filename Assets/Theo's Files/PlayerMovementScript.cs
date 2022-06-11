@@ -272,6 +272,9 @@ public class PlayerMovementScript : MonoBehaviour
         }
         if (collision.gameObject.tag == "Death")
         {
+            fade = 0.85f;
+            material.SetFloat("_DissolveAmount", fade);
+            inputDisabled = true;
             isDead = true;
         }
     }
