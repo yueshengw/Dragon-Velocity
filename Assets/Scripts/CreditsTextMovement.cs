@@ -19,11 +19,11 @@ public class CreditsTextMovement : MonoBehaviour
     {
         beginMovementTimer += Time.deltaTime;
 
-        if (beginMovementTimer >= 3 && beginMovementTimer <= 21)
+        if (beginMovementTimer >= 3 && beginMovementTimer <= 28)
         {
             GetComponent<Transform>().position += moveUp;
         }
-        if (beginMovementTimer >= 28)
+        if (beginMovementTimer >= 31)
         {
             SceneManager.LoadScene("MainMenu");
         }
