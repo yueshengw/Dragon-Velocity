@@ -23,6 +23,7 @@ TagManager:
   - Fly
   - Downward
   - Upper
+  - Rock
   layers:
   - Default
   - TransparentFX
@@ -38,7 +39,7 @@ TagManager:
   - 
   - Player
   - FallingStone
-  - 
+  - RollingRock
   - 
   - 
   - 
