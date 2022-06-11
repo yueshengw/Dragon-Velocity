@@ -16,7 +16,9 @@ TagManager:
   - Dragon Egg
   - Breakable
   - Slippery
-  - Barrier
+  - Fly
+  - Downward
+  - Upper
   layers:
   - Default
   - TransparentFX

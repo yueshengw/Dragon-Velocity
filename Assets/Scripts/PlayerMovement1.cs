@@ -97,6 +97,8 @@ public class PlayerMovement1 : MonoBehaviour
     public bool inputDisabled;
 
     public GameObject DashGlow;
+    private RaycastHit2D rh;
+
     //public SpriteGlowEffect spriteGlowEffect; 
     void Awake() 
     {
