@@ -200,7 +200,7 @@ MonoBehaviour:
   isDead: 0
   playerHealth: 6
   speed: 35
-  jumpForce: 30
+  jumpForce: 35
   walkingAudio: {fileID: 166625131419869273}
   jumpingAudio: {fileID: 2153737585904491947}
   landAudio: {fileID: 2153737585904491946}
@@ -217,6 +217,8 @@ MonoBehaviour:
   respawn: 0
   inputDisabled: 0
   tr: {fileID: 0}
+  debug: 0
+  debugTrail: {fileID: 0}
 --- !u!114 &2153737585904491950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,12 +234,13 @@ MonoBehaviour:
   startDashTime: 0.5
   movementInput: 0
   playerDirection: 0
-  stompForce: -30
+  stompForce: -35
   dashAudio: {fileID: 2153737585904491945}
   groundpoundAudio: {fileID: 2153737585904491944}
   glideAudio: {fileID: 403426123742269154}
   dashingVelocity: 35
   dashingTime: 0.27
+  tr: {fileID: 0}
   player: {fileID: 0}
 --- !u!114 &3423009654992636082
 MonoBehaviour:
@@ -248,10 +251,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2153737585904491942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b51fd729252c1d46af6129cc3c476c9, type: 3}
+  m_Script: {fileID: 11500000, guid: be02d65bb65da4e08962834b94c9d209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameText: {fileID: 0}
+  eggInteractable: 0
   canvasObject: {fileID: 0}
 --- !u!61 &2153737585904491949
 BoxCollider2D:
@@ -312,7 +316,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 606e4fb12271ff24b9bf400a54f6d43a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.15
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
