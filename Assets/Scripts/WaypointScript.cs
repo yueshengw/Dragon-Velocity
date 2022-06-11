@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WaypointScript : MonoBehaviour
 {
+    public float moveSpeed = -1;
     // Start is called before the first frame update
     void Start()
     {

@@ -289,6 +289,13 @@ public class PlayerMovementScript : MonoBehaviour
             speed = 100;
             //jumpForce = 30;
         }
+        if (collision.gameObject.tag == "Death")
+        {
+            fade = 0.85f;
+            material.SetFloat("_DissolveAmount", fade);
+            inputDisabled = true;
+            isDead = true;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)

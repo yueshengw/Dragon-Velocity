@@ -17,6 +17,8 @@ TagManager:
   - Breakable
   - Slippery
   - Fly
+  - Downward
+  - Upper
   layers:
   - Default
   - TransparentFX
@@ -28,10 +30,10 @@ TagManager:
   - 
   - 
   - Slope Collider
+  - IgnorePlayer
   - 
-  - 
-  - 
-  - 
+  - Player
+  - FallingStone
   - 
   - 
   - 
