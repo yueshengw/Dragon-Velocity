@@ -10,6 +10,8 @@ public class PlayerReputationSystem : MonoBehaviour
     public static int dragonReputation;
     public static int kingReputation;
 
+    public bool eggInteractable;
+
     //public int startingDragonReputation;
     //public int startingKingReputation;
 
@@ -24,7 +26,8 @@ public class PlayerReputationSystem : MonoBehaviour
         gameText = GameObject.Find("Game Text").GetComponent<TextMeshProUGUI>();
         gameText.text = "";
 
-        canvasObject = GameObject.Find("Canvas");
+        canvasObject = GameObject.Find("Choice Panel Canvas");
+        eggInteractable = false;
     }
 
     // Update is called once per frame
@@ -77,7 +80,7 @@ public class PlayerReputationSystem : MonoBehaviour
 
         if (collision.gameObject.tag == "Cutscene Dragon Egg")
         {
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(KeyCode.E) && eggInteractable == true)
             {
                 canvasObject.GetComponent<ChoicePanelManager>().eggInteracted = true;
             }

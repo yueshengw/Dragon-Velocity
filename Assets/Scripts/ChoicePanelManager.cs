@@ -20,6 +20,7 @@ public class ChoicePanelManager : MonoBehaviour
     {
         gameText = GameObject.Find("Game Text");
         cutsceneTextObject = GameObject.Find("CutsceneTextObject");
+        choicePanelUI = GameObject.Find("Choice Panel");
         choicePanelUI.SetActive(false);
         playerReputationObject = GameObject.FindGameObjectWithTag("Player");
 
@@ -47,6 +48,11 @@ public class ChoicePanelManager : MonoBehaviour
         if (cutsceneTextObject.GetComponent<CutsceneTextScript>().textCounter == 13)
         {
             SceneManager.LoadScene("Forest");
+        }
+
+        if(cutsceneTextObject.GetComponent<CutsceneTextScript>().textCounter == 4)
+        {
+            playerReputationObject.GetComponent<PlayerReputationSystem>().eggInteractable = true;
         }
 
     }

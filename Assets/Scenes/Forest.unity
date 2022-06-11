@@ -30757,17 +30757,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6238159927829163163, guid: 11a72b895e9ad45bebd0f9a9d526a6d2, type: 3}
   m_PrefabInstance: {fileID: 376634787}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &381563481 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1588238107, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
-  m_PrefabInstance: {fileID: 2112865230}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccd36507c6ddb16408059da48926559c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &397232273
 GameObject:
   m_ObjectHideFlags: 0
@@ -41821,14 +41810,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player GameObject (V 2.0)
       objectReference: {fileID: 0}
-    - target: {fileID: 2153737585904491948, guid: 44c1bce2a9a5c2943a673dbfdcf8c6c5, type: 3}
-      propertyPath: m_GravityScale
-      value: 9.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2153737585904491951, guid: 44c1bce2a9a5c2943a673dbfdcf8c6c5, type: 3}
-      propertyPath: jumpForce
-      value: 35
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44c1bce2a9a5c2943a673dbfdcf8c6c5, type: 3}
 --- !u!1001 &1285003928
@@ -42546,6 +42527,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1076194843}
     m_Modifications:
+    - target: {fileID: 4572944607542125211, guid: 44c1bce2a9a5c2943a673dbfdcf8c6c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6238159927829163161, guid: 11a72b895e9ad45bebd0f9a9d526a6d2, type: 3}
       propertyPath: m_Name
       value: Breakable Wood_1
@@ -42592,10 +42577,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6238159927829163163, guid: 11a72b895e9ad45bebd0f9a9d526a6d2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4572944607542125211, guid: 44c1bce2a9a5c2943a673dbfdcf8c6c5, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -52995,62 +52976,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 174644825, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 174644825, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 174644825, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 381563481}
-    - target: {fileID: 174644825, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 174644825, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LeftEggAlone
-      objectReference: {fileID: 0}
-    - target: {fileID: 174644825, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ChoicePanelManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 174644825, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 1145265126, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1145265126, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1145265126, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 381563481}
-    - target: {fileID: 1145265126, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1145265126, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DestroyedEgg
-      objectReference: {fileID: 0}
-    - target: {fileID: 1145265126, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ChoicePanelManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1145265126, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 8187242328400803884, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -53093,14 +53018,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8187242328400803884, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8187242328400803885, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
-      propertyPath: lastCheckpointPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8187242328400803885, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
-      propertyPath: lastCheckpointPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8187242328400803886, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}

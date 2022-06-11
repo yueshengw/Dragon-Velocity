@@ -69,7 +69,7 @@ public class PlayerMovementScript : MonoBehaviour
         inputX = Input.GetAxisRaw("Horizontal");
         rb2D.velocity = new Vector2(inputX * speed, rb2D.velocity.y);
 
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) && isGrounded == true)
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded == true)
         {
             rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
             jumpingAudio.Play();
@@ -299,19 +299,6 @@ public class PlayerMovementScript : MonoBehaviour
     IEnumerator CoroutineSlip()
     {
         yield return new WaitForSeconds(1.5f);
-        speed = 35;
-        jumpForce = 30;
-        tr.emitting = false;
-    }
-}
-        {
-            StartCoroutine(CoroutineSlip());
-        }
-    }
-
-    IEnumerator CoroutineSlip()
-    {
-        yield return new WaitForSeconds(1);
         speed = 35;
         jumpForce = 30;
         tr.emitting = false;
