@@ -342,8 +342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: dialogue5
-      value: (Press E to Make a Choice. After you make your choice press Space to
-        Contiue Dialogue)
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: dialogue6
@@ -611,6 +610,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 106675452, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 106675452, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 106675452, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8187242328400803884, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
       propertyPath: m_RootOrder
       value: 1

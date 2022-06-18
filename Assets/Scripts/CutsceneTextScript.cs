@@ -45,7 +45,7 @@ public class CutsceneTextScript : MonoBehaviour
         //textCounter = 0;
     }
 
-    IEnumerator ShowText()
+    public IEnumerator ShowText()
     {
          for(int i = 0; i < fulltext.Length + 1; i++)
         {

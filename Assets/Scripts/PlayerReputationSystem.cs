@@ -56,9 +56,17 @@ public class PlayerReputationSystem : MonoBehaviour
 
         if (collision.gameObject.tag == "Cutscene Dragon Egg")
         {
-            if (Input.GetKey(KeyCode.E))
+            if(eggInteractable == true)
             {
-                canvasObject.GetComponent<ChoicePanelManager>().eggInteracted = true;
+                gameText.text = "Press E to Interact";
+                if (Input.GetKey(KeyCode.E))
+                {
+                    canvasObject.GetComponent<ChoicePanelManager>().eggInteracted = true;
+                }
+            }
+            else if (eggInteractable == false)
+            {
+                gameText.text = "";
             }
         }
 
@@ -80,9 +88,17 @@ public class PlayerReputationSystem : MonoBehaviour
 
         if (collision.gameObject.tag == "Cutscene Dragon Egg")
         {
-            if (Input.GetKey(KeyCode.E) && eggInteractable == true)
+            if (eggInteractable == true)
             {
-                canvasObject.GetComponent<ChoicePanelManager>().eggInteracted = true;
+                gameText.text = "Press E to Interact";
+                if (Input.GetKey(KeyCode.E))
+                {
+                    canvasObject.GetComponent<ChoicePanelManager>().eggInteracted = true;
+                }
+            }
+            else if (eggInteractable == false)
+            {
+                gameText.text = "";
             }
         }
     }
@@ -91,6 +107,14 @@ public class PlayerReputationSystem : MonoBehaviour
         if (collision.gameObject.tag == "Dragon Egg")
         {
             gameText.text = "";
+        }
+
+        if (collision.gameObject.tag == "Cutscene Dragon Egg")
+        {
+            if (eggInteractable == true)
+            {
+                gameText.text = "";
+            }
         }
     }
 

@@ -1024,7 +1024,7 @@ GameObject:
   - component: {fileID: 1694879846}
   - component: {fileID: 1694879847}
   m_Layer: 0
-  m_Name: Good Ending Transition Object
+  m_Name: Good Ending Scene Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

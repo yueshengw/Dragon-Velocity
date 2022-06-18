@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial (Castle).unity
     guid: 9c92a9188cd2245f790719bbb41a9ba4
   - enabled: 1
+    path: Assets/Scenes/King Meeting.unity
+    guid: feb504ba15ac18f4cb352ba50a741db7
+  - enabled: 1
     path: Assets/Scenes/The Outskirts.unity
     guid: d9e3acf0e7a64a64299ce52238b5de7c
   - enabled: 1
