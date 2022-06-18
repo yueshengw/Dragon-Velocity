@@ -196,7 +196,7 @@ public class PlayerMovementScript : MonoBehaviour
         //All Scene Transitions
         if (collider.gameObject.tag == "Outskirts Door")
         {
-            SceneManager.LoadScene("The Outskirts");
+            SceneManager.LoadScene("King Meeting");
         }
 
         if (collider.gameObject.tag == "Forest Door")

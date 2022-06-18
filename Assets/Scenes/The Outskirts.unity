@@ -39902,7 +39902,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6379879158816284173, guid: 32ae1bf3abee8f346a26099fb6d40ab1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.2
+      value: 3.7
       objectReference: {fileID: 0}
     - target: {fileID: 6379879158816284173, guid: 32ae1bf3abee8f346a26099fb6d40ab1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -40324,6 +40324,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 106675452, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 106675452, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 106675452, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8187242328400803884, guid: 30845ce0c1ede49df90da41acb966fc7, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -40672,7 +40684,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5978501706790857285, guid: d700c934850176e47b70d7caaa853d8e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.43
+      value: 2.23
       objectReference: {fileID: 0}
     - target: {fileID: 5978501706790857285, guid: d700c934850176e47b70d7caaa853d8e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -42729,6 +42741,10 @@ PrefabInstance:
       value: To the Next Level
       objectReference: {fileID: 0}
     - target: {fileID: 4956384535318472692, guid: 43515e66265da0245965e20dddad6ef0, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4956384535318472692, guid: 43515e66265da0245965e20dddad6ef0, type: 3}
       propertyPath: m_fontColor.b
       value: 1
       objectReference: {fileID: 0}
@@ -42739,6 +42755,10 @@ PrefabInstance:
     - target: {fileID: 4956384535318472692, guid: 43515e66265da0245965e20dddad6ef0, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967040
+      objectReference: {fileID: 0}
+    - target: {fileID: 4956384535318472692, guid: 43515e66265da0245965e20dddad6ef0, type: 3}
+      propertyPath: m_enableVertexGradient
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4956384535318472693, guid: 43515e66265da0245965e20dddad6ef0, type: 3}
       propertyPath: m_Pivot.x
