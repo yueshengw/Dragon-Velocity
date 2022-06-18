@@ -29,6 +29,8 @@ public class ChoicePanelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerReputationObject = GameObject.FindGameObjectWithTag("Player");
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (!gameIsPaused && eggInteracted)
