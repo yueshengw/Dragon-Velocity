@@ -173,7 +173,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 7f26458faa058cf4a86adc3b01a57982, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -930,7 +930,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.98571426
+        value: 0.8
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -938,19 +938,10 @@ TrailRenderer:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.4388889
-        value: 0.50000006
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.68549705
-        value: 0.27143055
-        inSlope: 0
-        outSlope: 0
+        time: 0.5
+        value: 0.4
+        inSlope: -0.8467198
+        outSlope: -0.8467198
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -969,7 +960,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0, g: 0.8325968, b: 1, a: 1}
+      key0: {r: 0, g: 1, b: 1, a: 1}
       key1: {r: 0, g: 0.8325968, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -996,8 +987,8 @@ TrailRenderer:
       m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
+    numCornerVertices: 10
+    numCapVertices: 10
     alignment: 0
     textureMode: 1
     shadowBias: 0.5

@@ -413,7 +413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeechText: {fileID: 8129464716309631341}
-  textCounter: 0
+  textCounter: -1
   maxTextCount: 15
   README_README_README: FILL ALL EMPTY BOXES WITH PREVIOUS TEXT
   placeholder: 1

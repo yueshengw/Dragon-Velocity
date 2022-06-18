@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mountain.unity
     guid: 13b352c89925048a29359e25211b32f2
+  - enabled: 1
+    path: Assets/Scenes/Good Ending.unity
+    guid: 2911ec49a226ed34aa28450a6ca2cdad
+  - enabled: 1
+    path: Assets/Scenes/End Credits.unity
+    guid: 09191a0a98cf64a599d1f18f7d49f85d
   m_configObjects: {}
