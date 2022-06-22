@@ -294,6 +294,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 951045712}
     m_Modifications:
+    - target: {fileID: 8129464715470054480, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129464715470054480, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129464715470054480, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 35.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129464715470054480, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -210.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129464715470054483, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c28320af383f438a8bc88059e2edc80, type: 3}
+    - target: {fileID: 8129464715470054483, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129464715470054483, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129464715470054483, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8129464716309631341, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: m_fontSize
       value: 14
@@ -2490,9 +2522,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f03f9cb8b120e4512937d6c9e8da23ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 2}
@@ -2510,7 +2542,7 @@ Transform:
   m_GameObject: {fileID: 1908220393}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.84, y: 0.62, z: 0}
-  m_LocalScale: {x: 3, y: 4, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
