@@ -16,7 +16,7 @@ public class NeutralEndingSceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (textStuff.GetComponent<CutsceneTextScript>().textCounter <= 10)
+        if (textStuff.GetComponent<CutsceneTextScript>().textCounter >= 10)
         {
             SceneManager.LoadScene("End Credits");
         }

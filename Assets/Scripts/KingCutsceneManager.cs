@@ -29,7 +29,7 @@ public class KingCutsceneManager : MonoBehaviour
         {
             Debug.Log("Movement is done");
         }
-        if (TextObject.GetComponent<CutsceneTextScript>().textCounter >= 11)
+        if (TextObject.GetComponent<CutsceneTextScript>().textCounter >= 10)
         {
             sceneFaderExit.GetComponent<FadeToBlack>().start = true;
         }

@@ -16,7 +16,7 @@ public class BadEndingManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cutsceneTextObject.GetComponent<CutsceneTextScript>().textCounter == 14)
+        if (cutsceneTextObject.GetComponent<CutsceneTextScript>().textCounter >= 11)
         {
             SceneManager.LoadScene("End Credits");
         }

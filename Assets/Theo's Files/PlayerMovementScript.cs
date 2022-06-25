@@ -196,13 +196,18 @@ public class PlayerMovementScript : MonoBehaviour
         //All Scene Transitions
         if (collider.gameObject.tag == "Outskirts Door")
         {
-            SceneManager.LoadScene("King Meeting");
+            SceneManager.LoadScene("King Speech");
         }
 
         if (collider.gameObject.tag == "Forest Door")
         {
             //play dragon mother cutscene
             SceneManager.LoadScene("MotherDragonMeeting");
+        }
+
+        if(collider.gameObject.tag == "Mountain Door")
+        {
+            SceneManager.LoadScene("Mountain");
         }
 
         if (collider.gameObject.tag == "Slippery")
@@ -239,7 +244,7 @@ public class PlayerMovementScript : MonoBehaviour
         {
             speed = 60;
             jumpForce = 65;
-            //tr.emitting = true;
+            tr.emitting = true;
         }
 
     }

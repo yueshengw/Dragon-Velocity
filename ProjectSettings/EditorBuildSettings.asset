@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial (Castle).unity
     guid: 9c92a9188cd2245f790719bbb41a9ba4
   - enabled: 1
-    path: Assets/Scenes/King Meeting.unity
-    guid: feb504ba15ac18f4cb352ba50a741db7
+    path: Assets/Scenes/King Speech.unity
+    guid: 568920204049fdb4d8bf3cec71739e9c
   - enabled: 1
     path: Assets/Scenes/The Outskirts.unity
     guid: d9e3acf0e7a64a64299ce52238b5de7c
@@ -29,6 +29,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Good Ending.unity
     guid: 2911ec49a226ed34aa28450a6ca2cdad
+  - enabled: 1
+    path: Assets/Scenes/Bad Ending.unity
+    guid: 58a6e5ba5d1a14e08a65c04400814a71
+  - enabled: 1
+    path: Assets/Scenes/Neutral Ending.unity
+    guid: 54b70751c1f2241ef84b8c9245f75b20
   - enabled: 1
     path: Assets/Scenes/End Credits.unity
     guid: 09191a0a98cf64a599d1f18f7d49f85d

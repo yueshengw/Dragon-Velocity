@@ -326,21 +326,29 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8129464716309631341, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129464716309631341, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967040
+      objectReference: {fileID: 0}
     - target: {fileID: 8129464716310652596, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 445903839b0dd4cc6a65247b06028dff, type: 3}
+      objectReference: {fileID: 21300000, guid: 5f62106a8d5507e49b4032945d3eb762, type: 3}
     - target: {fileID: 8129464716310652596, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: m_Color.a
       value: 0.5254902
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716310652596, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: m_Color.b
-      value: 0.68799996
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716310652596, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: m_Color.g
-      value: 0.68799996
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716310652596, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: m_Color.r
@@ -356,51 +364,59 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: delay
-      value: 0.05
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: dialogue0
-      value: Confronting the fate of an entire two species is not an easy task
+      value: Confronting the fate of an entire two species is not an easy task. (Press
+        Space to Continue Inner Monologue)
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: dialogue1
-      value: There are few who can resist the motivation of history
+      value: There are few who can resist the motivation of history. (Press Space
+        to Continue Inner Monologue)
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: dialogue2
-      value: There are few who can resist the motivation of history
+      value: '*Sighing with some regret* (Press Space to Continue Inner Monologue)'
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: dialogue3
-      value: And fewer still who can let bygones be
+      value: And fewer still who can let bygones be. (Press Space to Continue Inner
+        Monologue)
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: dialogue4
-      value: Not all of the eggs were destroyed
+      value: Not all of the eggs were destroyed. (Press Space to Continue Inner Monologue)
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: dialogue5
-      value: But enough were to once more feed the flames of war
+      value: But enough were to once more feed the flames of war. (Press Space to
+        Continue Inner Monologue)
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: dialogue6
-      value: In hundreds of years past many have tried to end it
+      value: In hundreds of years past many have tried to end it. (Press Space to
+        Continue Inner Monologue)
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: dialogue7
-      value: And in hundreds of years forth many will try still
+      value: And in hundreds of years forth many will try still. (Press Space to
+        Continue Inner Monologue)
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: dialogue8
-      value: But nothing will change until one certain someone
+      value: But nothing will change until one certain someone. (Press Space to Continue
+        Inner Monologue)
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: dialogue9
-      value: Who's quick mind and wit
+      value: Who's quick mind and wit. (Press Space to Continue Inner Monologue)
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: dialogue10
-      value: "Can match up to the Dragon\u2019s Velocity"
+      value: "Can match up to the Dragon\u2019s Velocity. (Press Space to Continue
+        Inner Monologue)"
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: dialogue11

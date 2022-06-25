@@ -36,11 +36,31 @@ public class PlayerReputationSystem : MonoBehaviour
         if(dragonReputation >= 3)
         {
             //Play Dragon good ending
+            SceneManager.LoadScene("Good Ending");
+            kingReputation = 0;
+            dragonReputation = 0;
         }
 
         if(kingReputation >= 3)
         {
-            //Play King Good Ending
+            //Play King Good Ending (AKA: Bad Ending for Dragons)
+            SceneManager.LoadScene("Bad Ending");
+            kingReputation = 0;
+            dragonReputation = 0;
+        }
+
+        if (kingReputation == 2 && dragonReputation == 1)
+        {
+            SceneManager.LoadScene("Neutral Ending");
+            kingReputation = 0;
+            dragonReputation = 0;
+        }
+
+        if(dragonReputation == 2 && kingReputation == 1)
+        {
+            SceneManager.LoadScene("Neutral Ending");
+            kingReputation = 0;
+            dragonReputation = 0;
         }
     }
     public void OnTriggerEnter2D(Collider2D collision)

@@ -162,12 +162,7 @@ public class PlayerAbilitiesScript : MonoBehaviour
             Destroy(collider.gameObject);
         }
 
-        if(collider.gameObject.tag == "Ground")
-        {
-            canDash = true;
-            canStomp = true;
-        }
-        if (collider.gameObject.tag == "Breakable_Floor")
+        if(collider.gameObject.tag == "Ground" || collider.gameObject.tag == "Slippery" || collider.gameObject.tag == "Breakable_Floor")
         {
             canDash = true;
             canStomp = true;
