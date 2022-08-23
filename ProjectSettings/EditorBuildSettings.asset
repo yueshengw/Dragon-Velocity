@@ -6,6 +6,36 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/MainMenu.unity
+    guid: 8f32ce5dbbea24473b916129553e44eb
+  - enabled: 1
+    path: Assets/Scenes/Tutorial (Castle).unity
+    guid: 9c92a9188cd2245f790719bbb41a9ba4
+  - enabled: 1
+    path: Assets/Scenes/King Speech.unity
+    guid: 568920204049fdb4d8bf3cec71739e9c
+  - enabled: 1
+    path: Assets/Scenes/The Outskirts.unity
+    guid: d9e3acf0e7a64a64299ce52238b5de7c
+  - enabled: 1
+    path: Assets/Scenes/MotherDragonMeeting.unity
+    guid: eb79e68454cf3415e9473809ab0bbb5f
+  - enabled: 1
+    path: Assets/Scenes/Forest.unity
+    guid: 4f280b9c0054ae74f9d53646e3bfc883
+  - enabled: 1
+    path: Assets/Scenes/Mountain.unity
+    guid: 13b352c89925048a29359e25211b32f2
+  - enabled: 1
+    path: Assets/Scenes/Good Ending.unity
+    guid: 2911ec49a226ed34aa28450a6ca2cdad
+  - enabled: 1
+    path: Assets/Scenes/Bad Ending.unity
+    guid: 58a6e5ba5d1a14e08a65c04400814a71
+  - enabled: 1
+    path: Assets/Scenes/Neutral Ending.unity
+    guid: 54b70751c1f2241ef84b8c9245f75b20
+  - enabled: 1
+    path: Assets/Scenes/End Credits.unity
+    guid: 09191a0a98cf64a599d1f18f7d49f85d
   m_configObjects: {}
