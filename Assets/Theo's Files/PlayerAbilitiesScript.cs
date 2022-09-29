@@ -4,106 +4,190 @@ using UnityEngine;
 
 public class PlayerAbilitiesScript : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    public float dashSpeed;
+    private Rigidbody2D rb2D;
+    private Animator anim;
     private float dashTime;
     public float startDashTime;
     public float movementInput;
     public int playerDirection;
 
+    private bool isStomping;
+    private bool canStomp = true;
+
+    [SerializeField] private float stompForce;
+
+    [SerializeField] private AudioSource dashAudio;
+    [SerializeField] private AudioSource groundpoundAudio;
+    [SerializeField] private AudioSource glideAudio;
+
+    [Header("Dashing")]
+    [SerializeField] private float dashingVelocity;
+    [SerializeField] private float dashingTime;
+    private Vector2 dashingDirection;
+    private bool isDashing;
+    private bool canDash = true;
+    public TrailRenderer tr;
+
+    public PlayerMovementScript player;
+
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb2D = GetComponent<Rigidbody2D>();
         dashTime = startDashTime;
+        tr = GetComponent<TrailRenderer>();
+        anim = GetComponent<Animator>();
+        player = GetComponent<PlayerMovementScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        DashMove();
         StompMove();
-        //BrakeMove();
+        BrakeMove();
         GlideMove();
+        DashMove();
+    }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            movementInput = -1;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            movementInput = 1;
-        }
-
-
+    private IEnumerator StopDashing()
+    {
+        yield return new WaitForSeconds(dashingTime);
+        tr.emitting = false;
+        isDashing = false;
+        isStomping = false;
     }
 
     void DashMove()
     {
-        if (playerDirection == 0)
+        if ((Input.GetKeyDown(KeyCode.H) || Input.GetKeyDown(KeyCode.LeftShift)) && canDash)
         {
-            if (Input.GetKeyDown(KeyCode.H))
+            isDashing = true;
+            canDash = false;
+            tr.emitting = true;
+            dashAudio.Play();
+            dashingDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            if (dashingDirection == Vector2.zero)
             {
-                if (movementInput < 0)
-                {
-                    playerDirection = 1;
-                }
-                else if (movementInput > 0)
-                {
-                    playerDirection = 2;
-                }
+                dashingDirection = new Vector2(transform.localScale.x, 0);
+            }
+            StartCoroutine(StopDashing());
+            //animator.SetBool("IsDashing", isDashing);
+        }
+
+        if (isDashing)
+        {
+            anim.SetBool("IsDashing", true);
+
+            rb2D.velocity = dashingDirection.normalized * dashingVelocity;
+            return;
+        }
+        else
+        {
+            anim.SetBool("IsDashing", false);
+        }
+    }
+    void BrakeMove()
+    {
+        if (Input.GetKeyDown(KeyCode.J) /*&& GetComponent<PlayerMovementScript>().isGrounded == true*/)
+        {
+            if (playerDirection == 0)
+            {
+                rb2D.velocity = Vector2.zero;
+            }
+        }
+    }
+    void StompMove()
+    {
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) && canStomp == true)
+        {
+            tr.emitting = true;
+            groundpoundAudio.Play();
+            rb2D.velocity = new Vector2(rb2D.velocity.x, stompForce);
+            isStomping = true;
+            canStomp = false;
+            StartCoroutine(StopDashing());
+        }
+
+        if (isStomping)
+        {
+            anim.SetBool("IsStomping", true);
+        }
+        else
+        {
+            anim.SetBool("IsStomping", false);
+        }
+    }
+
+    void GlideMove()
+    {
+        if ((Input.GetKey(KeyCode.K) || Input.GetKey(KeyCode.V)) && GetComponent<PlayerMovementScript>().isGrounded == false)
+        {
+            rb2D.drag = 15;
+            tr.emitting = true;
+        }
+        else if ((Input.GetKeyUp(KeyCode.K) || Input.GetKeyUp(KeyCode.V)))
+        {
+            rb2D.drag = 0;
+            tr.emitting = false;
+        }
+
+        if ((Input.GetKey(KeyCode.K) || Input.GetKey(KeyCode.V)))
+        {
+            if (!glideAudio.isPlaying)
+            {
+                glideAudio.Play();
+                anim.SetBool("IsGliding", true);
+            }
+            if (player.isGrounded == true)
+            {
+                glideAudio.Stop();
+                anim.SetBool("IsGliding", false);
             }
         }
         else
         {
-            if (dashTime <= 0)
-            {
-                playerDirection = 0;
-                dashTime = startDashTime;
-                rb.velocity = Vector2.zero;
-            }
-            else
-            {
-                dashTime -= Time.deltaTime;
-
-                if (playerDirection == 1)
-                {
-                    rb.velocity = Vector2.left * dashSpeed;
-                }
-                else if (playerDirection == 2)
-                {
-                    rb.velocity = Vector2.right * dashSpeed;
-                }
-            }
+            glideAudio.Stop();
+            anim.SetBool("IsGliding", false);
         }
     }
 
-    /*void BrakeMove()
+    private void OnCollisionEnter2D(Collision2D collider)
     {
-
-    }*/
-    void StompMove()
-    {
-        if (Input.GetKeyDown(KeyCode.S))
+        if (collider.gameObject.tag == "Breakable_Wall" && isDashing == true)
         {
-            if (GetComponent<PlayerMovementScript>().isGrounded == false)
-            {
-                if (playerDirection == 0)
-                {
-                    rb.velocity = Vector2.down * dashSpeed;
-                }
-            }
+            Destroy(collider.gameObject);
+        }
+        if (collider.gameObject.tag == "Breakable_Floor" && isStomping == true)
+        {
+            Destroy(collider.gameObject);
+        }
+
+        if(collider.gameObject.tag == "Ground" || collider.gameObject.tag == "Slippery" || collider.gameObject.tag == "Breakable_Floor")
+        {
+            canDash = true;
+            canStomp = true;
         }
     }
-    void GlideMove()
+    private void OnCollisionStay2D(Collision2D collider)
     {
-        if (Input.GetKey(KeyCode.K))
+        if (collider.gameObject.tag == "Breakable_Wall" && isDashing == true)
         {
-            rb.drag = 12;
+            Destroy(collider.gameObject);
         }
-        if (Input.GetKeyUp(KeyCode.K))
+        if (collider.gameObject.tag == "Breakable_Floor" && isStomping == true)
         {
-            rb.drag = 0;
+            Destroy(collider.gameObject);
+        }
+
+        if (collider.gameObject.tag == "Ground")
+        {
+            canDash = true;
+            canStomp = true;
+        }
+        if (collider.gameObject.tag == "Breakable_Floor")
+        {
+            canDash = true;
+            canStomp = true;
         }
     }
 }
