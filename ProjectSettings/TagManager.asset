@@ -8,8 +8,21 @@ TagManager:
   - Ground
   - Wall
   - Checkpoint
-  - Breakable
   - Trigger1
+  - Outskirts Door
+  - Forest Door
+  - Breakable_Wall
+  - Breakable_Floor
+  - Dragon Egg
+  - Barrier
+  - Cutscene Dragon Egg
+  - Breakable
+  - Slippery
+  - Fly
+  - Downward
+  - Upper
+  - Rock
+  - Mountain Door
   layers:
   - Default
   - TransparentFX
@@ -17,15 +30,15 @@ TagManager:
   - 
   - Water
   - UI
+  - Post Processing
   - 
   - 
+  - Slope Collider
+  - IgnorePlayer
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - FallingStone
+  - RollingRock
   - 
   - 
   - 
