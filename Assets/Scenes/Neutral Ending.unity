@@ -373,50 +373,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: dialogue1
-      value: There are few who can resist the motivation of history. (Press Space
-        to Continue Inner Monologue)
+      value: There are few who can resist the motivation of history.
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: dialogue2
-      value: '*Sighing with some regret* (Press Space to Continue Inner Monologue)'
+      value: '*Sighing with some regret*'
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: dialogue3
-      value: And fewer still who can let bygones be. (Press Space to Continue Inner
-        Monologue)
+      value: And fewer still who can let bygones be.
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: dialogue4
-      value: Not all of the eggs were destroyed. (Press Space to Continue Inner Monologue)
+      value: Not all of the eggs were destroyed.
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: dialogue5
-      value: But enough were to once more feed the flames of war. (Press Space to
-        Continue Inner Monologue)
+      value: But enough were to once more feed the flames of war.
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: dialogue6
-      value: In hundreds of years past many have tried to end it. (Press Space to
-        Continue Inner Monologue)
+      value: In hundreds of years past many have tried to end it.
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: dialogue7
-      value: And in hundreds of years forth many will try still. (Press Space to
-        Continue Inner Monologue)
+      value: And in hundreds of years forth many will try still.
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: dialogue8
-      value: But nothing will change until one certain someone. (Press Space to Continue
-        Inner Monologue)
+      value: But nothing will change until one certain someone.
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: dialogue9
-      value: Who's quick mind and wit. (Press Space to Continue Inner Monologue)
+      value: Who's quick mind and wit.
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: dialogue10
-      value: "Can match up to the Dragon\u2019s Velocity. (Press Space to Continue
-        Inner Monologue)"
+      value: "Can match up to the Dragon\u2019s Velocity."
       objectReference: {fileID: 0}
     - target: {fileID: 8129464716438088601, guid: 5d0db17d0931a42d9aac7a81aac20f6d, type: 3}
       propertyPath: dialogue11

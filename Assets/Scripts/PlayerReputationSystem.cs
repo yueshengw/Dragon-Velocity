@@ -8,7 +8,9 @@ public class PlayerReputationSystem : MonoBehaviour
 {
     public TextMeshProUGUI gameText;
     public static int dragonReputation;
+    public int dragonReputationDebug;
     public static int kingReputation;
+    public int kingReputationDebug;
 
     public bool eggInteractable;
 
@@ -21,7 +23,7 @@ public class PlayerReputationSystem : MonoBehaviour
     void Start()
     {
         //dragonReputation = startingDragonReputation;
-       //kingReputation = startingKingReputation;
+        //kingReputation = startingKingReputation;
 
         gameText = GameObject.Find("Game Text").GetComponent<TextMeshProUGUI>();
         gameText.text = "";
@@ -33,7 +35,11 @@ public class PlayerReputationSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(dragonReputation >= 3)
+        dragonReputation = PlayerPrefs.GetInt("dragonReputation", 0);
+        kingReputation = PlayerPrefs.GetInt("kingReputation", 0);
+        kingReputationDebug = kingReputation;
+        dragonReputationDebug = dragonReputation;
+        if (dragonReputation >= 3)
         {
             //Play Dragon good ending
             SceneManager.LoadScene("Good Ending");
@@ -41,7 +47,7 @@ public class PlayerReputationSystem : MonoBehaviour
             dragonReputation = 0;
         }
 
-        if(kingReputation >= 3)
+        if (kingReputation >= 3)
         {
             //Play King Good Ending (AKA: Bad Ending for Dragons)
             SceneManager.LoadScene("Bad Ending");
@@ -56,7 +62,7 @@ public class PlayerReputationSystem : MonoBehaviour
             dragonReputation = 0;
         }
 
-        if(dragonReputation == 2 && kingReputation == 1)
+        if (dragonReputation == 2 && kingReputation == 1)
         {
             SceneManager.LoadScene("Neutral Ending");
             kingReputation = 0;
@@ -76,7 +82,7 @@ public class PlayerReputationSystem : MonoBehaviour
 
         if (collision.gameObject.tag == "Cutscene Dragon Egg")
         {
-            if(eggInteractable == true)
+            if (eggInteractable == true)
             {
                 gameText.text = "Press E to Interact";
                 if (Input.GetKey(KeyCode.E))

@@ -10,6 +10,11 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene("Tutorial (Castle)");
     }
 
+    public void Credits()
+    {
+        SceneManager.LoadScene("End Credits");
+    }
+
     public void QuitGame()
     {
         Application.Quit();

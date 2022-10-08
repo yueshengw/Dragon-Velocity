@@ -234,6 +234,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Text
       objectReference: {fileID: 0}
+    - target: {fileID: 4956384535318472694, guid: 43515e66265da0245965e20dddad6ef0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43515e66265da0245965e20dddad6ef0, type: 3}
 --- !u!1001 &30603387
@@ -75035,10 +75039,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1076194843}
     m_Modifications:
-    - target: {fileID: 4572944607542125211, guid: 44c1bce2a9a5c2943a673dbfdcf8c6c5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6238159927829163161, guid: 11a72b895e9ad45bebd0f9a9d526a6d2, type: 3}
       propertyPath: m_Name
       value: Breakable Wood_1
@@ -75085,6 +75085,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6238159927829163163, guid: 11a72b895e9ad45bebd0f9a9d526a6d2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572944607542125211, guid: 44c1bce2a9a5c2943a673dbfdcf8c6c5, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

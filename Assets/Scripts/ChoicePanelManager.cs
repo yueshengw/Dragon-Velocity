@@ -43,7 +43,7 @@ public class ChoicePanelManager : MonoBehaviour
             }
         }
 
-        if(cutsceneTextObject.GetComponent<CutsceneTextScript>().textCounter == 8)
+        if (cutsceneTextObject.GetComponent<CutsceneTextScript>().textCounter == 8)
         {
             SceneManager.LoadScene("Forest");
         }
@@ -52,7 +52,7 @@ public class ChoicePanelManager : MonoBehaviour
             SceneManager.LoadScene("Forest");
         }
 
-        if(cutsceneTextObject.GetComponent<CutsceneTextScript>().textCounter == 4)
+        if (cutsceneTextObject.GetComponent<CutsceneTextScript>().textCounter == 4)
         {
             playerReputationObject.GetComponent<PlayerReputationSystem>().eggInteractable = true;
             cutsceneTextObject.SetActive(false);
@@ -76,7 +76,7 @@ public class ChoicePanelManager : MonoBehaviour
         Time.timeScale = 1f;
         gameIsPaused = false;
         gameText.SetActive(true);
-        PlayerReputationSystem.kingReputation += 1;
+        PlayerPrefs.SetInt("kingReputation", PlayerPrefs.GetInt("kingReputation", 0) + 1);
         eggInteracted = false;
         Destroy(GameObject.Find("EST Dragon Egg"));
     }
@@ -91,7 +91,7 @@ public class ChoicePanelManager : MonoBehaviour
         Time.timeScale = 1f;
         gameIsPaused = false;
         gameText.SetActive(true);
-        PlayerReputationSystem.dragonReputation += 1;
+        PlayerPrefs.SetInt("dragonReputation", PlayerPrefs.GetInt("dragonReputation", 0) + 1);
         GameObject.Find("EST Dragon Egg").GetComponent<BoxCollider2D>().enabled = false;
         playerReputationObject.GetComponent<PlayerReputationSystem>().eggInteractable = false;
         eggInteracted = false;

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameManager : MonoBehaviour
-{   
+{
     public Vector2 lastCheckpointPosition;
 
     public bool respawn;
@@ -42,9 +42,9 @@ public class GameManager : MonoBehaviour
         }
         if (player.GetComponent<PlayerMovementScript>().deathTime <= 0f)
         {
-            Instantiate (playerPrefab, lastCheckpointPosition, Quaternion.identity);
+            player.transform.position = lastCheckpointPosition;
             player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-            Destroy(GameObject.FindGameObjectWithTag("Player"));
+            // Destroy(GameObject.FindGameObjectWithTag("Player"));
         }
     }
 
@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.gameObject.tag == "Dragon Egg")
+        if (collider.gameObject.tag == "Dragon Egg")
         {
             Debug.Log("Is Triggered");
             gameText.text = "Press F to Destroy or E to Save Dragon Egg";

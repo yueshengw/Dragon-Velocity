@@ -7,7 +7,8 @@ public class CreditsTextMovement : MonoBehaviour
 {
     public float beginMovementTimer;
     public Vector3 moveUp;
-
+    public float max;
+    public float debug;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,13 +19,12 @@ public class CreditsTextMovement : MonoBehaviour
     void Update()
     {
         beginMovementTimer += Time.deltaTime;
-
-        if (beginMovementTimer >= 3 && beginMovementTimer <= 28)
+        debug = transform.position.y;
+        if (beginMovementTimer >= 0.7 && transform.position.y < max)
         {
             GetComponent<Transform>().position += moveUp;
         }
-        if (beginMovementTimer >= 31)
-        {
+        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Escape)){
             SceneManager.LoadScene("MainMenu");
         }
     }
